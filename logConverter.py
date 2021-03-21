@@ -46,9 +46,9 @@ class PlayerData: #Player stat on csv
     Cooldown2: str = '0'
     Position: str = ''
     MaxHealth: str = '0'
-    deathByHero: str = ''
-    deathByAbility: str = ''
-    deathByPlayer: str = ''
+    DeathByHero: str = ''
+    DeathByAbility: str = ''
+    DeathByPlayer: str = ''
     Resurrected: str = ''
     DuplicatedHero: str = ''
     DuplicateStatus: str = ''
@@ -122,7 +122,7 @@ class LogHandler: # Log Parsing & Handling
                 elif self.logpattern.pattern_playerInfo.match(line):    # pattern 2 : PlayerInfo
                     self.playerInfo_stream_handler(line)                    
                     
-                elif self.logpattern.pattern_finalblow.match(line):    # pattern 4 : Final blow occured(handling deathBy* variables), need to clear the deathBy series after write to csv
+                elif self.logpattern.pattern_finalblow.match(line):    # pattern 4 : Final blow occured(handling DeathBy* variables), need to clear the DeathBy series after write to csv
                     self.finalBlow_stream_handler(line)
 
                 elif self.logpattern.pattern_typeControl.match(line): # pattern 5 : handling 'Point' and 'RoundMap' if the map type is control
@@ -224,11 +224,11 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].Cooldown2 = basket_list[25]
         self.playerDataDict[userProfile].MaxHealth = basket_list[26].rstrip()
 
-    def finalBlow_stream_handler(self,line): # set deathBy ... 
+    def finalBlow_stream_handler(self,line): # set DeathBy ... 
         basket_list = self.define_basket_list(line) 
-        self.playerDataDict[basket_list[3]].deathByPlayer = basket_list[2]
-        self.playerDataDict[basket_list[3]].deathByHero = self.playerDataDict[basket_list[2]].Hero
-        self.playerDataDict[basket_list[3]].deathByAbility = basket_list[4]
+        self.playerDataDict[basket_list[3]].DeathByPlayer = basket_list[2]
+        self.playerDataDict[basket_list[3]].DeathByHero = self.playerDataDict[basket_list[2]].Hero
+        self.playerDataDict[basket_list[3]].DeathByAbility = basket_list[4]
     
     def define_basket_list(self,line): # define basket list (delete [hh:mm:ss])
         basket_list = line[11:].split(',')
@@ -239,17 +239,17 @@ class LogHandler: # Log Parsing & Handling
         p = asdict(self.playerDataDict[player])
         writer.writerow(p)
 
-        self.cleansing_deathBy(player)
+        self.cleansing_DeathBy(player)
         self.cleansing_resurrect(player)
         return 0
     
-    def cleansing_deathBy(self,player):
-        if self.playerDataDict[player].deathByPlayer != '':
-            self.playerDataDict[player].deathByPlayer = ''
-        if self.playerDataDict[player].deathByAbility != '':
-            self.playerDataDict[player].deathByAbility = ''
-        if self.playerDataDict[player].deathByHero != '':
-            self.playerDataDict[player].deathByHero = ''
+    def cleansing_DeathBy(self,player):
+        if self.playerDataDict[player].DeathByPlayer != '':
+            self.playerDataDict[player].DeathByPlayer = ''
+        if self.playerDataDict[player].DeathByAbility != '':
+            self.playerDataDict[player].DeathByAbility = ''
+        if self.playerDataDict[player].DeathByHero != '':
+            self.playerDataDict[player].DeathByHero = ''
     
     def cleansing_resurrect(self,player):
         if self.playerDataDict[player].Resurrected == 'REVIVE':
