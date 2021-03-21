@@ -1,0 +1,49 @@
+{
+    "hero":
+    [
+        {
+            "srcName": "Lúcio",
+            "dstName": "Lucio"
+        },
+        {
+            "srcName": "Torbjörn",
+            "dstName": "Torbjorn"
+        }
+    ],
+    "player":
+    {
+        "team":
+        {
+            "NYE":
+            [
+                {
+                    "srcName": "방준배",
+                    "dstName": "JJonak"
+                },
+                {
+                    "srcName": "광붕이",
+                    "dstName": "Gwangboong"
+                },
+                {
+                    "srcName": "훈련용봇",
+                    "dstName": "ivy"
+                },
+                {
+                    "srcName": "twowinhyun",
+                    "dstName": "ivy"
+                }
+            ],
+            "Blilbili Gaming":
+            [
+                {
+                    "srcName": "알파이",
+                    "dstName": "AlphaYi"
+                },
+                {
+                    "srcName": "October02",
+                    "dstName": "Winter"
+                }
+            ]
+        }
+    }
+}
