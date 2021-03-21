@@ -1,5 +1,5 @@
 {
-    "hero":
+    "Hero":
     [
         {
             "srcName": "Lúcio",
@@ -10,7 +10,7 @@
             "dstName": "Torbjorn"
         }
     ],
-    "player":
+    "Player":
     {
         "team":
         {
