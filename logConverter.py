@@ -147,7 +147,12 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].Position = basket_list[20] + ',' + basket_list[21] + ',' + basket_list[22]
         self.playerDataDict[userProfile].Cooldown1 = basket_list[24]
         self.playerDataDict[userProfile].Cooldown2 = basket_list[25]
-        self.playerDataDict[userProfile].MaxHealth = basket_list[26].rstrip()
+        self.playerDataDict[userProfile].CooldownSecondaryFire = basket_list[26]
+        self.playerDataDict[userProfile].CooldownCrouching = basket_list[27]
+        self.playerDataDict[userProfile].IsCrouching = basket_list[28]
+        self.playerDataDict[userProfile].IsAlive = basket_list[29]
+        self.playerDataDict[userProfile].TimeElapsed = basket_list[30]
+        self.playerDataDict[userProfile].MaxHealth = basket_list[31].rstrip()
 
     def finalBlow_stream_handler(self,line): # set DeathBy ... 
         basket_list = self.define_basket_list(line) 
