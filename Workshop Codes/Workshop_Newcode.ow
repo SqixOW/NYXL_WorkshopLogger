@@ -1,0 +1,508 @@
+variables
+{
+	global:
+		2: GameMode
+		3: ScoreModified
+		4: TournamentMode
+		12: MapInfoLogged
+		14: InfoDrawn
+		16: AllowDCResume
+		17: FirstRoundDone
+		19: DVaRestore
+		20: UltCharges
+		21: Positions
+		22: ShouldRestore
+		23: Heroes
+		24: Cooldowns1
+		25: Cooldowns2
+
+	player:
+		0: IsUlting
+}
+
+subroutines
+{
+	0: LogMapGamemodeInfo
+	1: LogHybridInfo
+	4: PlayerDCDvaTeam1
+	5: PlayerDCDvaTeam2
+	6: CreateSpectatorHUD
+}
+
+rule("Remove Assembling Heroes") # 영웅 선택 단계 스킵
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Assembling Heroes == True;
+	}
+
+	actions
+	{
+		Set Match Time(0);
+		Wait(5, Ignore Condition);
+		Set Match Time(50);
+	}
+}
+
+rule("Call Spectator HUD") # 관전 UI 로딩
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Call Subroutine(CreateSpectatorHUD);
+	}
+}
+
+rule("Spectator HUD") # 관전 UI 코드
+{
+	event
+	{
+		Subroutine;
+		CreateSpectatorHUD;
+	}
+
+	actions # 방벽 데미지 - 영웅 데미지 - FB - 죽음 - 힐량 - 궁극기 사용 횟수 
+	{
+		If(True);
+			"team 1"
+			Create HUD Text(Null, Null, Null, Custom String("{0}   {1} - {2}", Hero Icon String(Hero Of(Players In Slot(0, Team 1))),
+				Round To Integer(Player Stat(Players In Slot(0, Team 1), Barrier Damage Dealt) + Player Stat(Players In Slot(0, Team 1),
+				Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}", Round To Integer(Player Stat(Players In Slot(0, Team 1),
+				Damage Taken), Up), Player Stat(Players In Slot(0, Team 1), Final Blows), Custom String("{0} - {1} - {2}", Player Stat(
+				Players In Slot(0, Team 1), Deaths), Round To Integer(Player Stat(Players In Slot(0, Team 1), Healing Dealt), Up),
+				Custom String("{0}", Player Stat(Players In Slot(0, Team 1), Ultimates Used))))), Left, 1, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0}   {1} - {2}", Hero Icon String(Hero Of(Players In Slot(1, Team 1))),
+				Round To Integer(Player Stat(Players In Slot(1, Team 1), Barrier Damage Dealt) + Player Stat(Players In Slot(1, Team 1),
+				Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}", Round To Integer(Player Stat(Players In Slot(1, Team 1),
+				Damage Taken), Up), Player Stat(Players In Slot(1, Team 1), Final Blows), Custom String("{0} - {1} - {2}", Player Stat(
+				Players In Slot(1, Team 1), Deaths), Round To Integer(Player Stat(Players In Slot(1, Team 1), Healing Dealt), Up),
+				Custom String("{0}", Player Stat(Players In Slot(1, Team 1), Ultimates Used))))), Left, 2, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0}   {1} - {2}", Hero Icon String(Hero Of(Players In Slot(2, Team 1))),
+				Round To Integer(Player Stat(Players In Slot(2, Team 1), Barrier Damage Dealt) + Player Stat(Players In Slot(2, Team 1),
+				Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}", Round To Integer(Player Stat(Players In Slot(2, Team 1),
+				Damage Taken), Up), Player Stat(Players In Slot(2, Team 1), Final Blows), Custom String("{0} - {1} - {2}", Player Stat(
+				Players In Slot(2, Team 1), Deaths), Round To Integer(Player Stat(Players In Slot(2, Team 1), Healing Dealt), Up),
+				Custom String("{0}", Player Stat(Players In Slot(2, Team 1), Ultimates Used))))), Left, 3, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0}   {1} - {2}", Hero Icon String(Hero Of(Players In Slot(3, Team 1))),
+				Round To Integer(Player Stat(Players In Slot(3, Team 1), Barrier Damage Dealt) + Player Stat(Players In Slot(3, Team 1),
+				Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}", Round To Integer(Player Stat(Players In Slot(3, Team 1),
+				Damage Taken), Up), Player Stat(Players In Slot(3, Team 1), Final Blows), Custom String("{0} - {1} - {2}", Player Stat(
+				Players In Slot(3, Team 1), Deaths), Round To Integer(Player Stat(Players In Slot(3, Team 1), Healing Dealt), Up),
+				Custom String("{0}", Player Stat(Players In Slot(3, Team 1), Ultimates Used))))), Left, 4, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0}   {1} - {2}", Hero Icon String(Hero Of(Players In Slot(4, Team 1))),
+				Round To Integer(Player Stat(Players In Slot(4, Team 1), Barrier Damage Dealt) + Player Stat(Players In Slot(4, Team 1),
+				Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}", Round To Integer(Player Stat(Players In Slot(4, Team 1),
+				Damage Taken), Up), Player Stat(Players In Slot(4, Team 1), Final Blows), Custom String("{0} - {1} - {2}", Player Stat(
+				Players In Slot(4, Team 1), Deaths), Round To Integer(Player Stat(Players In Slot(4, Team 1), Healing Dealt), Up),
+				Custom String("{0}", Player Stat(Players In Slot(4, Team 1), Ultimates Used))))), Left, 5, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0}   {1} - {2}", Hero Icon String(Hero Of(Players In Slot(5, Team 1))),
+				Round To Integer(Player Stat(Players In Slot(5, Team 1), Barrier Damage Dealt) + Player Stat(Players In Slot(5, Team 1),
+				Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}", Round To Integer(Player Stat(Players In Slot(5, Team 1),
+				Damage Taken), Up), Player Stat(Players In Slot(5, Team 1), Final Blows), Custom String("{0} - {1} - {2}", Player Stat(
+				Players In Slot(5, Team 1), Deaths), Round To Integer(Player Stat(Players In Slot(5, Team 1), Healing Dealt), Up),
+				Custom String("{0}", Player Stat(Players In Slot(5, Team 1), Ultimates Used))))), Left, 6, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			"team 2"
+			Create HUD Text(Null, Null, Null, Custom String("{0} - {1}", Round To Integer(Player Stat(Players In Slot(0, Team 2),
+				Barrier Damage Dealt) + Player Stat(Players In Slot(0, Team 2), Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}",
+				Round To Integer(Player Stat(Players In Slot(0, Team 2), Damage Taken), Up), Player Stat(Players In Slot(0, Team 2),
+				Final Blows), Custom String("{0} - {1} - {2}", Player Stat(Players In Slot(0, Team 2), Deaths), Round To Integer(Player Stat(
+				Players In Slot(0, Team 2), Healing Dealt), Up), Custom String("{0}   {1}", Player Stat(Players In Slot(0, Team 2),
+				Ultimates Used), Hero Icon String(Hero Of(Players In Slot(0, Team 2))))))), Right, -5, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0} - {1}", Round To Integer(Player Stat(Players In Slot(1, Team 2),
+				Barrier Damage Dealt) + Player Stat(Players In Slot(1, Team 2), Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}",
+				Round To Integer(Player Stat(Players In Slot(1, Team 2), Damage Taken), Up), Player Stat(Players In Slot(1, Team 2),
+				Final Blows), Custom String("{0} - {1} - {2}", Player Stat(Players In Slot(1, Team 2), Deaths), Round To Integer(Player Stat(
+				Players In Slot(1, Team 2), Healing Dealt), Up), Custom String("{0}   {1}", Player Stat(Players In Slot(1, Team 2),
+				Ultimates Used), Hero Icon String(Hero Of(Players In Slot(1, Team 2))))))), Right, -4, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0} - {1}", Round To Integer(Player Stat(Players In Slot(2, Team 2),
+				Barrier Damage Dealt) + Player Stat(Players In Slot(2, Team 2), Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}",
+				Round To Integer(Player Stat(Players In Slot(2, Team 2), Damage Taken), Up), Player Stat(Players In Slot(2, Team 2),
+				Final Blows), Custom String("{0} - {1} - {2}", Player Stat(Players In Slot(2, Team 2), Deaths), Round To Integer(Player Stat(
+				Players In Slot(2, Team 2), Healing Dealt), Up), Custom String("{0}   {1}", Player Stat(Players In Slot(2, Team 2),
+				Ultimates Used), Hero Icon String(Hero Of(Players In Slot(2, Team 2))))))), Right, -3, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0} - {1}", Round To Integer(Player Stat(Players In Slot(3, Team 2),
+				Barrier Damage Dealt) + Player Stat(Players In Slot(3, Team 2), Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}",
+				Round To Integer(Player Stat(Players In Slot(3, Team 2), Damage Taken), Up), Player Stat(Players In Slot(3, Team 2),
+				Final Blows), Custom String("{0} - {1} - {2}", Player Stat(Players In Slot(3, Team 2), Deaths), Round To Integer(Player Stat(
+				Players In Slot(3, Team 2), Healing Dealt), Up), Custom String("{0}   {1}", Player Stat(Players In Slot(3, Team 2),
+				Ultimates Used), Hero Icon String(Hero Of(Players In Slot(3, Team 2))))))), Right, -2, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0} - {1}", Round To Integer(Player Stat(Players In Slot(4, Team 2),
+				Barrier Damage Dealt) + Player Stat(Players In Slot(4, Team 2), Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}",
+				Round To Integer(Player Stat(Players In Slot(4, Team 2), Damage Taken), Up), Player Stat(Players In Slot(4, Team 2),
+				Final Blows), Custom String("{0} - {1} - {2}", Player Stat(Players In Slot(4, Team 2), Deaths), Round To Integer(Player Stat(
+				Players In Slot(4, Team 2), Healing Dealt), Up), Custom String("{0}   {1}", Player Stat(Players In Slot(4, Team 2),
+				Ultimates Used), Hero Icon String(Hero Of(Players In Slot(4, Team 2))))))), Right, -1, Color(White), Color(White), Color(
+				White), Visible To and String, Visible Always);
+			Create HUD Text(Null, Null, Null, Custom String("{0} - {1}", Round To Integer(Player Stat(Players In Slot(5, Team 2),
+				Barrier Damage Dealt) + Player Stat(Players In Slot(5, Team 2), Hero Damage Dealt), Up), Custom String("{0} - {1} - {2}",
+				Round To Integer(Player Stat(Players In Slot(5, Team 2), Damage Taken), Up), Player Stat(Players In Slot(5, Team 2),
+				Final Blows), Custom String("{0} - {1} - {2}", Player Stat(Players In Slot(5, Team 2), Deaths), Round To Integer(Player Stat(
+				Players In Slot(5, Team 2), Healing Dealt), Up), Custom String("{0}   {1}", Player Stat(Players In Slot(5, Team 2),
+				Ultimates Used), Hero Icon String(Hero Of(Players In Slot(5, Team 2))))))), Right, 0, Color(White), Color(White), Color(White),
+				Visible To and String, Visible Always);
+	}
+}
+
+rule("First attack done") # Team 2 공격 완료 여부
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Between Rounds == True;
+		Is Team On Offense(Team 2) == True;
+		Global.ScoreModified == 0;
+	}
+
+	actions
+	{
+		Wait(15, Ignore Condition);
+		Global.FirstRoundDone = True;
+	}
+}
+
+rule("Set Team Scores") # 팀 2 공격 이후 완전히 다 민 스코어 적용(CP 2, ES/HY 3)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.ScoreModified == 0;
+		Global.FirstRoundDone == True;
+		Global.TournamentMode == False;
+	}
+
+	actions
+	{
+		Global.ScoreModified = 1;
+		If(Global.GameMode == 1);
+			Set Team Score(Team 2, 3);
+		Else If(Global.GameMode == 2);
+			Set Team Score(Team 2, 2);
+	}
+}
+
+rule("Set Game Mode") # 게임 모드(호위, 복합 : 1 / 점령 : 2 / 쟁탈 : 3)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.GameMode == 0;
+	}
+
+	actions
+	{
+		If(Current Game Mode == Game Mode(Escort) || Current Game Mode == Game Mode(Hybrid));
+			Global.GameMode = 1;
+		Else If(Current Game Mode == Game Mode(Assault));
+			Global.GameMode = 2;
+		Else If(Current Game Mode == Game Mode(Control));
+			Global.GameMode = 3;
+	}
+}
+
+rule("Reset Map Info") # 맵 로깅 Trigger
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == False;
+		Global.MapInfoLogged == True;
+	}
+
+	actions
+	{
+		Global.MapInfoLogged = False;
+	}
+}
+
+rule("Log Map Info") # 맵 정보 로깅 (맵, 팀1 이름, 팀2 이름, 섹션 / 플레이어 1 ~ 12), 
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Global.MapInfoLogged == False;
+	}
+
+	actions
+	{
+		Global.MapInfoLogged = True;
+        # logDataStruct.Logpattern.matchInfo에 해당하는 로그
+		Log To Inspector(Custom String("{0},{1},{2}", Current Map, Team Of(Players In Slot(0, Team 1)), Custom String("{0},{1}", Team Of(
+			Players In Slot(0, Team 2)), Objective Index)));
+        # logDataStruct.Logpattern.playerInfo에 해당하는 로그
+		Log To Inspector(Custom String("{0},{1},{2}", Custom String("{0},{1},{2}", Players In Slot(0, Team 1), Players In Slot(1, Team 1),
+			Players In Slot(2, Team 1)), Custom String("{0},{1},{2}", Custom String("{0},{1},{2}", Players In Slot(3, Team 1),
+			Players In Slot(4, Team 1), Players In Slot(5, Team 1)), Players In Slot(0, Team 2), Players In Slot(1, Team 2)),
+			Custom String("{0},{1}", Custom String("{0},{1},{2}", Players In Slot(2, Team 2), Players In Slot(3, Team 2), Players In Slot(
+			4, Team 2)), Players In Slot(5, Team 2))));
+	}
+}
+
+rule("Global Logging - Ongoing") # 인게임 중이면서 라운드 교체상태가 아닌 경우 로깅(LogMapGamemodeInfo 서브루틴 호출)
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Global.MapInfoLogged == True;
+		Is Between Rounds == False;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		Call Subroutine(LogMapGamemodeInfo);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Global Logging - Subroutine") # 쟁탈의 거점게이지, 복합, 호위, 점령 맵에 대한 게임 진행 상황에 대한 로깅 
+{
+	event
+	{
+		Subroutine;
+		LogMapGamemodeInfo;
+	}
+
+	actions
+	{
+		If(Current Game Mode == Game Mode(Control)); # logDataStruct.Logpattern.typeControl에 해당하는 로그
+			"time, team 1 percentage, team 2 percentage"
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Control Mode Scoring Percentage(Team 1),
+				Control Mode Scoring Percentage(Team 2)));
+		Else If(Current Game Mode == Game Mode(Escort));
+			"time, team 1 attacking (else is team 2), payload progress percentage"
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+		Else If(Current Game Mode == Game Mode(Assault));
+			"time, team 1 attacking (else is team 2), point capture percentage"
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+		Else If(Current Game Mode == Game Mode(Hybrid));
+			If(Is Team On Offense(Team 1) == True);
+				Call Subroutine(LogHybridInfo);
+			Else;
+				If(Team Score(Team 2) >= 1);
+					"time, team 1 attacking (else is team 2), payload progress percentage"
+					Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+				Else;
+					"time, team 1 attacking (else is team 2), point capture percentage"
+					Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+	}
+}
+
+rule("Global Logging - Subroutine 2") # 복합 맵에 대한 서브루틴 : 화물과 점령의 포인트 계산 핸들러
+{
+	event
+	{
+		Subroutine;
+		LogHybridInfo;
+	}
+
+	actions
+	{
+		If(Team Score(Team 1) >= 1);
+			"time, team 1 attacking (else is team 2), payload progress percentage"
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+		Else;
+			"time, team 1 attacking (else is team 2), point capture percentage"
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+	}
+}
+
+rule("Player Logging - Ongoing") # logDataStruct.Logpattern.playerData에 해당하는 로그
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Global.MapInfoLogged == True;
+		Is Between Rounds == False;
+	}
+
+	actions
+	{
+		Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Event Player, Custom String("{0},{1},{2}", Hero Of(Event Player),
+			Player Stat(Event Player, Hero Damage Dealt), Custom String("{0},{1},{2}", Player Stat(Event Player, Barrier Damage Dealt),
+			Player Stat(Event Player, Damage Blocked), Custom String("{0},{1},{2}", Player Stat(Event Player, Damage Taken), Player Stat(
+			Event Player, Deaths), Custom String("{0},{1},{2}", Player Stat(Event Player, Eliminations), Player Stat(Event Player,
+			Final Blows), Custom String("{0},{1},{2}", Player Stat(Event Player, Environmental Deaths), Player Stat(Event Player,
+			Environmental Kills), Custom String("{0},{1},{2}", Player Stat(Event Player, Healing Dealt), Player Stat(Event Player,
+			Objective Kills), Custom String("{0},{1},{2}", Player Stat(Event Player, Solo Kills), Player Stat(Event Player,
+			Ultimates Earned), Custom String("{0},{1},{2}", Player Stat(Event Player, Ultimates Used), Player Hero Stat(Event Player,
+			All Heroes, Healing Received), Custom String("{0},{1},{2}", Ultimate Charge Percent(Event Player), Player Closest To Reticle(
+			Event Player, All Teams), Custom String("{0},{1},{2}", Position Of(Event Player), Team Of(Event Player), Custom String(
+			"{0},{1},{2}", Ability Cooldown(Event Player, Button(Ability 1)), Ability Cooldown(Event Player, Button(Ability 2)),
+			Max Health(Event Player))))))))))))));
+		Wait(1, Ignore Condition);
+		"(do at end)"
+		Loop If(Is Game In Progress);
+	}
+}
+
+rule("Log Event - FB") # logDataStruct.Logpattern.finalBlow에 해당하는 로그
+{
+	event
+	{
+		Player Dealt Final Blow;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Log To Inspector(Custom String("{0},FinalBlow,{1},{2}", Total Time Elapsed, Event Player, Custom String("{0},{1}", Victim,
+			Event Ability)));
+	}
+}
+
+rule("Log Event - PD") # Suicide에 해당하는 로그 (따로 Handling하지 않음)
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		(Event Was Environment || Attacker == Event Player) == True;
+	}
+
+	actions
+	{
+		Log To Inspector(Custom String("{0},Suicide,{1}", Total Time Elapsed, Event Player));
+	}
+}
+
+rule("Log Event - Resurrect") # logDataStruct.Logpattern.Resurrected에 해당하는 로그
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Has Status(Event Player, Phased Out) == True;
+		Is In Spawn Room(Event Player) == False;
+		Is Hero Being Played(Hero(Mercy), Team Of(Event Player)) == True;
+		Ability Cooldown(First Of(Players On Hero(Hero(Mercy), Team Of(Event Player))), Button(Ability 2)) >= 5;
+	}
+
+	actions
+	{
+		Log To Inspector(Custom String("{0},Resurrected,{1}", Total Time Elapsed, Event Player));
+	}
+}
+
+rule("Log Event - Echo Duplicate Start") # logDataStruct.Logpattern.dupstart에 해당하는 로그
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Hero Of(Event Player) == Hero(Echo);
+		Is Duplicating(Event Player) == True;
+		Event Player.IsUlting == False;
+	}
+
+	actions
+	{
+		Log To Inspector(Custom String("{0},DuplicatingStart,{1},{2}", Total Time Elapsed, Event Player, Hero Being Duplicated(
+			Event Player)));
+		Event Player.IsUlting = True;
+	}
+}
+
+rule("Log Event - Echo Duplicate End")  # logDataStruct.Logpattern.dupend에 해당하는 로그
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Hero Of(Event Player) == Hero(Echo);
+		Is Duplicating(Event Player) == False;
+		Event Player.IsUlting == True;
+	}
+
+	actions
+	{
+		Log To Inspector(Custom String("{0},DuplicatingEnd,{1}", Total Time Elapsed, Event Player));
+		Event Player.IsUlting = False;
+	}
+}

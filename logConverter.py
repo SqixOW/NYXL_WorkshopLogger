@@ -177,7 +177,7 @@ class LogHandler: # Log Parsing & Handling
             self.playerDataDict[player].DeathByHero = ''
     
     def cleansing_resurrect(self,player):
-        if self.playerDataDict[player].Resurrected == 'REVIVE':
+        if self.playerDataDict[player].Resurrected == 'RESURRECTED':
             self.playerDataDict[player].Resurrected = ''
 
     def typeControl_stream_handler(self,line): # set point if the map is Control type
@@ -199,7 +199,7 @@ class LogHandler: # Log Parsing & Handling
     
     def dupstart_stream_handler(self,line): # handling duplicate - duplicate ON
         basket_list = self.define_basket_list(line)
-        self.playerDataDict[basket_list[2]].DuplicateStatus = 'ON'
+        self.playerDataDict[basket_list[2]].DuplicateStatus = 'DUPLICATING'
         self.playerDataDict[basket_list[2]].DuplicatedHero = basket_list[3]
     
     def dupend_stream_handler(self,line): # handling duplicate - duplicate OFF
@@ -209,7 +209,7 @@ class LogHandler: # Log Parsing & Handling
 
     def resurrect_stream_handler(self, line): # handling resurrect event
         basket_list = self.define_basket_list(line)
-        self.playerDataDict[basket_list[2]].Resurrected = 'REVIVE'
+        self.playerDataDict[basket_list[2]].Resurrected = 'RESURRECTED'
 
 def main():
     args = sys.argv[1:]
