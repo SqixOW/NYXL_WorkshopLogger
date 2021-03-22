@@ -9,6 +9,7 @@ class Database:
 
         self.player =   {
                          'Lúcio':'Lucio',
+                         'Torbjörn':'Torbjorn',
                          '훈련용봇':'ivy',
                          '광붕이':'Gwangboong', 
                          '방준배':'JJonak', 
