@@ -3,6 +3,7 @@ import sys
 import math
 import csv
 from logDataStruct import LogPattern, MatchInfo, PlayerData
+from resourceDataStruct import ResourceData
 from dataclasses import dataclass, asdict
 from mapInfo import Controls, Maps
         
@@ -10,6 +11,7 @@ class LogHandler: # Log Parsing & Handling
     def __init__(self, args):
         self.logFile = args[0]
         self.csvFile = args[0].replace('.txt','.csv')
+        self.resourceDataFile = args[0].replace('.txt','_resourceData.csv')
         self.logpattern = LogPattern()
         self.matchInfo = MatchInfo()
         self.playerList = []
@@ -29,17 +31,26 @@ class LogHandler: # Log Parsing & Handling
             self.matchInfo.MapType = 'Escort'
            
     def log_handler(self):
-        result_csv = open(self.csvFile, 'w')
-        dict_key = PlayerData()
-        p = asdict(dict_key)
-        writer = csv.DictWriter(result_csv, fieldnames=p.keys(), lineterminator = '\n')
-        writer.writeheader()
+        resultCsv = open(self.csvFile, 'w')
+        resourceDataCsv = open(self.resourceDataFile,'w')
+        
+        resultDictKey = PlayerData()
+        resultDict = asdict(resultDictKey)
+        resultWriter = csv.DictWriter(resultCsv, fieldnames = resultDict.keys(), lineterminator = '\n')
+        resultWriter.writeheader()
+
+        resourceDictKey = ResourceData()
+        resourceDict = asdict(resourceDictKey)
+        resourceWriter = csv.DictWriter(resourceDataCsv, fieldnames = resourceDict.keys(), lineterminator = '\n')
+        resourceWriter.writeheader()
 
         with open(self.logFile) as fd:
             for line in fd.readlines():
                 if self.logpattern.pattern_playerData.match(line):    # pattern 3 : Player Match data
                     self.playerData_stream_handler(line)
-                    self.write_csv(line[11:].split(',')[1], result_csv, writer)
+                    self.write_csv(line[11:].split(',')[1], resultCsv, resultWriter)
+                    resourceDict = self.resourceData_handler(line)
+                    resourceWriter.writerow(asdict(resourceDict))
                 
                 elif self.logpattern.pattern_matchInfo.match(line):       # pattern 1 : MatchInfo
                     self.matchInfo_stream_handler(line)
@@ -65,7 +76,10 @@ class LogHandler: # Log Parsing & Handling
                 elif self.logpattern.pattern_resurrect.match(line): #pattern 8 : resurrect
                     self.resurrect_stream_handler(line)
 
-        result_csv.close()
+                
+
+        resultCsv.close()
+        resourceDataCsv.close()
 
     def matchInfo_stream_handler(self,line): # set MatchInfo Class
         basket_list = self.define_basket_list(line)
@@ -215,6 +229,25 @@ class LogHandler: # Log Parsing & Handling
     def resurrect_stream_handler(self, line): # handling resurrect event
         basket_list = self.define_basket_list(line)
         self.playerDataDict[basket_list[2]].Resurrected = 'RESURRECTED'
+
+    def resourceData_handler(self,line):
+        basket_list = self.define_basket_list(line)
+        resourceData = ResourceData()
+        resourceData.Player = basket_list[2]
+        resourceData.Timestamp = self.playerDataDict[basket_list[2]].Timestamp
+        resourceData.Team = self.playerDataDict[basket_list[2]].Team
+        resourceData.Cooldown1 = self.playerDataDict[basket_list[2]].Cooldown1
+        resourceData.Cooldown2 = self.playerDataDict[basket_list[2]].Cooldown2
+        resourceData.CooldownCrouching = self.playerDataDict[basket_list[2]].CooldownCrouching
+        resourceData.CooldownSecondaryFire = self.playerDataDict[basket_list[2]].CooldownSecondaryFire
+        resourceData.UltimateCharge = self.playerDataDict[basket_list[2]].UltimateCharge
+        resourceData.UltimatesEarned = self.playerDataDict[basket_list[2]].UltimatesEarned
+        resourceData.UltimatesUsed = self.playerDataDict[basket_list[2]].UltimatesUsed
+        resourceData.Point = self.playerDataDict[basket_list[2]].Point
+        resourceData.MaxHealth = self.playerDataDict[basket_list[2]].MaxHealth
+        resourceData.Position = self.playerDataDict[basket_list[2]].Position
+        return resourceData
+
 
 def main():
     args = sys.argv[1:]

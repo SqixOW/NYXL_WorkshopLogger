@@ -55,7 +55,6 @@ class PlayerData: #Player stat on csv
     DuplicatedHero: str = ''
     DuplicateStatus: str = ''
 
-
 class LogPattern: # Regex log patterns
     def __init__(self):
         self.pattern_dupstart = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(DuplicatingStart),(\w*),(\w*)')

@@ -2,7 +2,10 @@ import re
 from dataclasses import dataclass
 
 @dataclass
-class Resource:
+class ResourceData:
+    Timestamp: str='0'
+    Player: str='0'
+    Team: str='0'
     Cooldown1: str = '0'
     Cooldown2: str = '0'
     CooldownSecondaryFire: str = '0'
