@@ -46,43 +46,41 @@ class LogHandler: # Log Parsing & Handling
 
         with open(self.logFile) as fd:
             for line in fd.readlines():
+                basket_list = self.define_basket_list(line)
                 if self.logpattern.pattern_playerData.match(line):    # pattern 3 : Player Match data
-                    self.playerData_stream_handler(line)
+                    self.playerData_stream_handler(basket_list)
                     self.write_csv(line[11:].split(',')[1], resultCsv, resultWriter)
-                    resourceDict = self.resourceData_handler(line)
+                    resourceDict = self.resourceData_handler(basket_list) # Handling Resource Data Category
                     resourceWriter.writerow(asdict(resourceDict))
                 
                 elif self.logpattern.pattern_matchInfo.match(line):       # pattern 1 : MatchInfo
-                    self.matchInfo_stream_handler(line)
+                    self.matchInfo_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_playerInfo.match(line):    # pattern 2 : PlayerInfo
-                    self.playerInfo_stream_handler(line)                    
+                    self.playerInfo_stream_handler(basket_list)                    
                     
                 elif self.logpattern.pattern_finalblow.match(line):    # pattern 4 : Final blow occured(handling DeathBy* variables), need to clear the DeathBy series after write to csv
-                    self.finalBlow_stream_handler(line)
+                    self.finalBlow_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_typeControl.match(line): # pattern 5 : handling 'Point' and 'RoundMap' if the map type is control
-                    self.typeControl_stream_handler(line)
+                    self.typeControl_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_typeOthers.match(line): # pattern 6 : handling 'Point' and 'RoundMap' if the map type is not control
-                    self.typeOthers_stream_handler(line)
+                    self.typeOthers_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_dupstart.match(line): # pattern 7 : handling echo ult
-                    self.dupstart_stream_handler(line)
+                    self.dupstart_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_dupend.match(line): # pattern 7 : handling echo ult
-                    self.dupend_stream_handler(line)
+                    self.dupend_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_resurrect.match(line): #pattern 8 : resurrect
-                    self.resurrect_stream_handler(line)
-
-                
+                    self.resurrect_stream_handler(basket_list)
 
         resultCsv.close()
         resourceDataCsv.close()
 
-    def matchInfo_stream_handler(self,line): # set MatchInfo Class
-        basket_list = self.define_basket_list(line)
+    def matchInfo_stream_handler(self,basket_list): # set MatchInfo Class
         self.matchInfo.Map = basket_list[0]
         self.matchInfo.Team_1 = basket_list[1]
         self.matchInfo.Team_2 = basket_list[2]
@@ -104,15 +102,13 @@ class LogHandler: # Log Parsing & Handling
             self.matchInfo.Offense = self.matchInfo.Team_2
             self.matchInfo.Defense = self.matchInfo.Team_1
 
-    def playerInfo_stream_handler(self,line): # define playerDataDict dictionary(type : {str, dataclass PlayerData}), and also set player name on PlayerData dataclass
-        basket_list = self.define_basket_list(line)
+    def playerInfo_stream_handler(self,basket_list): # define playerDataDict dictionary(type : {str, dataclass PlayerData}), and also set player name on PlayerData dataclass
         self.playerList = basket_list
         for i in range(0, len(self.playerList)):
             self.playerDataDict[self.playerList[i]] = PlayerData()
             self.playerDataDict[self.playerList[i]].Player = self.playerList[i]
     
-    def playerData_stream_handler(self,line): # set playerDataDict dictonary(type : {str, dataclass PlayerData})
-        basket_list = self.define_basket_list(line)
+    def playerData_stream_handler(self,basket_list): # set playerDataDict dictonary(type : {str, dataclass PlayerData})
         if self.initialTimestamp == 0:
             self.initialTimestamp = float(basket_list[0])
             idx = self.playerList.index(basket_list[1])
@@ -168,8 +164,7 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].TimeElapsed = basket_list[30]
         self.playerDataDict[userProfile].MaxHealth = basket_list[31].rstrip()
 
-    def finalBlow_stream_handler(self,line): # set DeathBy ... 
-        basket_list = self.define_basket_list(line) 
+    def finalBlow_stream_handler(self,basket_list): # set DeathBy ... 
         self.playerDataDict[basket_list[3]].DeathByPlayer = basket_list[2]
         self.playerDataDict[basket_list[3]].DeathByHero = self.playerDataDict[basket_list[2]].Hero
         self.playerDataDict[basket_list[3]].DeathByAbility = basket_list[4]
@@ -199,14 +194,12 @@ class LogHandler: # Log Parsing & Handling
         if self.playerDataDict[player].Resurrected == 'RESURRECTED':
             self.playerDataDict[player].Resurrected = ''
 
-    def typeControl_stream_handler(self,line): # set point if the map is Control type
-        basket_list = self.define_basket_list(line)
+    def typeControl_stream_handler(self,basket_list): # set point if the map is Control type
         for i in range(0, 6):
             self.playerDataDict[self.playerList[i]].Point = basket_list[1]
             self.playerDataDict[self.playerList[i+6]].Point = basket_list[2]
         
-    def typeOthers_stream_handler(self,line): # set point if the map is not Control type
-        basket_list = self.define_basket_list(line)
+    def typeOthers_stream_handler(self,basket_list): # set point if the map is not Control type
         if basket_list[1] == "False":
             self.team1OffenseFlag = False            
             for i in range(0, 6):
@@ -216,22 +209,18 @@ class LogHandler: # Log Parsing & Handling
             for i in range(0, 6):
                 self.playerDataDict[self.playerList[i]].Point = basket_list[2]
     
-    def dupstart_stream_handler(self,line): # handling duplicate - duplicate ON
-        basket_list = self.define_basket_list(line)
+    def dupstart_stream_handler(self,basket_list): # handling duplicate - duplicate ON
         self.playerDataDict[basket_list[2]].DuplicateStatus = 'DUPLICATING'
         self.playerDataDict[basket_list[2]].DuplicatedHero = basket_list[3]
     
-    def dupend_stream_handler(self,line): # handling duplicate - duplicate OFF
-        basket_list = self.define_basket_list(line)
+    def dupend_stream_handler(self,basket_list): # handling duplicate - duplicate OFF
         self.playerDataDict[basket_list[2]].DuplicateStatus = ''
         self.playerDataDict[basket_list[2]].DuplicatedHero = ''
 
-    def resurrect_stream_handler(self, line): # handling resurrect event
-        basket_list = self.define_basket_list(line)
+    def resurrect_stream_handler(self, basket_list): # handling resurrect event
         self.playerDataDict[basket_list[2]].Resurrected = 'RESURRECTED'
 
-    def resourceData_handler(self,line):
-        basket_list = self.define_basket_list(line)
+    def resourceData_handler(self,basket_list):
         resourceData = ResourceData()
         resourceData.Player = basket_list[2]
         resourceData.Timestamp = self.playerDataDict[basket_list[2]].Timestamp
