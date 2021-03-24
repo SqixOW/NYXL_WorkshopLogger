@@ -253,7 +253,9 @@ rule("Player Logging - Ongoing")
 			All Heroes, Healing Received), Custom String("{0},{1},{2}", Ultimate Charge Percent(Event Player), Player Closest To Reticle(
 			Event Player, All Teams), Custom String("{0},{1},{2}", Position Of(Event Player), Team Of(Event Player), Custom String(
 			"{0},{1},{2}", Ability Cooldown(Event Player, Button(Ability 1)), Ability Cooldown(Event Player, Button(Ability 2)),
-			Max Health(Event Player))))))))))))));
+			Custom String("{0},{1},{2}", Ability Cooldown(Event Player, Button(Secondary Fire)), Ability Cooldown(Event Player, Button(
+			Crouch)), Custom String("{0},{1},{2}", Is Crouching(Event Player), Is Alive(Event Player), Custom String("{0},{1}",
+			Total Time Elapsed, Max Health(Event Player)))))))))))))))));
 		Wait(1, Ignore Condition);
 		"(do at end)"
 		Loop If(Is Game In Progress);

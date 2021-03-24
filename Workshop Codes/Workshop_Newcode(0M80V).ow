@@ -5,16 +5,7 @@ variables
 		3: ScoreModified
 		4: TournamentMode
 		12: MapInfoLogged
-		14: InfoDrawn
-		16: AllowDCResume
 		17: FirstRoundDone
-		19: DVaRestore
-		20: UltCharges
-		21: Positions
-		22: ShouldRestore
-		23: Heroes
-		24: Cooldowns1
-		25: Cooldowns2
 
 	player:
 		0: IsUlting
@@ -24,12 +15,10 @@ subroutines
 {
 	0: LogMapGamemodeInfo
 	1: LogHybridInfo
-	4: PlayerDCDvaTeam1
-	5: PlayerDCDvaTeam2
 	6: CreateSpectatorHUD
 }
 
-rule("Remove Assembling Heroes") # 영웅 선택 단계 스킵
+rule("Remove Assembling Heroes")
 {
 	event
 	{
@@ -49,7 +38,7 @@ rule("Remove Assembling Heroes") # 영웅 선택 단계 스킵
 	}
 }
 
-rule("Call Spectator HUD") # 관전 UI 로딩
+rule("Call Spectator HUD")
 {
 	event
 	{
@@ -67,7 +56,7 @@ rule("Call Spectator HUD") # 관전 UI 로딩
 	}
 }
 
-rule("Spectator HUD") # 관전 UI 코드
+rule("Spectator HUD")
 {
 	event
 	{
@@ -75,7 +64,7 @@ rule("Spectator HUD") # 관전 UI 코드
 		CreateSpectatorHUD;
 	}
 
-	actions # 방벽 데미지 - 영웅 데미지 - FB - 죽음 - 힐량 - 궁극기 사용 횟수 
+	actions
 	{
 		If(True);
 			"team 1"
@@ -167,7 +156,7 @@ rule("Spectator HUD") # 관전 UI 코드
 	}
 }
 
-rule("First attack done") # Team 2 공격 완료 여부
+rule("First attack done")
 {
 	event
 	{
@@ -188,7 +177,7 @@ rule("First attack done") # Team 2 공격 완료 여부
 	}
 }
 
-rule("Set Team Scores") # 팀 2 공격 이후 완전히 다 민 스코어 적용(CP 2, ES/HY 3)
+rule("Set Team Scores")
 {
 	event
 	{
@@ -212,7 +201,7 @@ rule("Set Team Scores") # 팀 2 공격 이후 완전히 다 민 스코어 적용
 	}
 }
 
-rule("Set Game Mode") # 게임 모드(호위, 복합 : 1 / 점령 : 2 / 쟁탈 : 3)
+rule("Set Game Mode")
 {
 	event
 	{
@@ -235,7 +224,7 @@ rule("Set Game Mode") # 게임 모드(호위, 복합 : 1 / 점령 : 2 / 쟁탈 :
 	}
 }
 
-rule("Reset Map Info") # 맵 로깅 Trigger
+rule("Reset Map Info")
 {
 	event
 	{
@@ -254,7 +243,7 @@ rule("Reset Map Info") # 맵 로깅 Trigger
 	}
 }
 
-rule("Log Map Info") # 맵 정보 로깅 (맵, 팀1 이름, 팀2 이름, 섹션 / 플레이어 1 ~ 12), 
+rule("Log Map Info")
 {
 	event
 	{
@@ -270,10 +259,8 @@ rule("Log Map Info") # 맵 정보 로깅 (맵, 팀1 이름, 팀2 이름, 섹션 
 	actions
 	{
 		Global.MapInfoLogged = True;
-        # logDataStruct.Logpattern.matchInfo에 해당하는 로그
 		Log To Inspector(Custom String("{0},{1},{2}", Current Map, Team Of(Players In Slot(0, Team 1)), Custom String("{0},{1}", Team Of(
 			Players In Slot(0, Team 2)), Objective Index)));
-        # logDataStruct.Logpattern.playerInfo에 해당하는 로그
 		Log To Inspector(Custom String("{0},{1},{2}", Custom String("{0},{1},{2}", Players In Slot(0, Team 1), Players In Slot(1, Team 1),
 			Players In Slot(2, Team 1)), Custom String("{0},{1},{2}", Custom String("{0},{1},{2}", Players In Slot(3, Team 1),
 			Players In Slot(4, Team 1), Players In Slot(5, Team 1)), Players In Slot(0, Team 2), Players In Slot(1, Team 2)),
@@ -282,7 +269,7 @@ rule("Log Map Info") # 맵 정보 로깅 (맵, 팀1 이름, 팀2 이름, 섹션 
 	}
 }
 
-rule("Global Logging - Ongoing") # 인게임 중이면서 라운드 교체상태가 아닌 경우 로깅(LogMapGamemodeInfo 서브루틴 호출)
+rule("Global Logging - Ongoing")
 {
 	event
 	{
@@ -304,7 +291,7 @@ rule("Global Logging - Ongoing") # 인게임 중이면서 라운드 교체상태
 	}
 }
 
-rule("Global Logging - Subroutine") # 쟁탈의 거점게이지, 복합, 호위, 점령 맵에 대한 게임 진행 상황에 대한 로깅 
+rule("Global Logging - Subroutine")
 {
 	event
 	{
@@ -314,30 +301,30 @@ rule("Global Logging - Subroutine") # 쟁탈의 거점게이지, 복합, 호위,
 
 	actions
 	{
-		If(Current Game Mode == Game Mode(Control)); # logDataStruct.Logpattern.typeControl에 해당하는 로그
+		If(Current Game Mode == Game Mode(Control));
 			"time, team 1 percentage, team 2 percentage"
 			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Control Mode Scoring Percentage(Team 1),
 				Control Mode Scoring Percentage(Team 2)));
 		Else If(Current Game Mode == Game Mode(Escort));
 			"time, team 1 attacking (else is team 2), payload progress percentage"
-			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage));
 		Else If(Current Game Mode == Game Mode(Assault));
 			"time, team 1 attacking (else is team 2), point capture percentage"
-			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage));
 		Else If(Current Game Mode == Game Mode(Hybrid));
 			If(Is Team On Offense(Team 1) == True);
 				Call Subroutine(LogHybridInfo);
 			Else;
 				If(Team Score(Team 2) >= 1);
 					"time, team 1 attacking (else is team 2), payload progress percentage"
-					Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+					Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage));
 				Else;
 					"time, team 1 attacking (else is team 2), point capture percentage"
-					Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+					Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage));
 	}
 }
 
-rule("Global Logging - Subroutine 2") # 복합 맵에 대한 서브루틴 : 화물과 점령의 포인트 계산 핸들러
+rule("Global Logging - Subroutine 2")
 {
 	event
 	{
@@ -349,14 +336,14 @@ rule("Global Logging - Subroutine 2") # 복합 맵에 대한 서브루틴 : 화�
 	{
 		If(Team Score(Team 1) >= 1);
 			"time, team 1 attacking (else is team 2), payload progress percentage"
-			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Payload Progress Percentage));
 		Else;
 			"time, team 1 attacking (else is team 2), point capture percentage"
-			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage)); # logDataStruct.Logpattern.typeOthers에 해당하는 로그
+			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage));
 	}
 }
 
-rule("Player Logging - Ongoing") # logDataStruct.Logpattern.playerData에 해당하는 로그
+rule("Player Logging - Ongoing")
 {
 	event
 	{
@@ -385,14 +372,16 @@ rule("Player Logging - Ongoing") # logDataStruct.Logpattern.playerData에 해당
 			All Heroes, Healing Received), Custom String("{0},{1},{2}", Ultimate Charge Percent(Event Player), Player Closest To Reticle(
 			Event Player, All Teams), Custom String("{0},{1},{2}", Position Of(Event Player), Team Of(Event Player), Custom String(
 			"{0},{1},{2}", Ability Cooldown(Event Player, Button(Ability 1)), Ability Cooldown(Event Player, Button(Ability 2)),
-			Max Health(Event Player))))))))))))));
+			Custom String("{0},{1},{2}", Ability Cooldown(Event Player, Button(Secondary Fire)), Ability Cooldown(Event Player, Button(
+			Crouch)), Custom String("{0},{1},{2}", Is Crouching(Event Player), Is Alive(Event Player), Custom String("{0},{1}",
+			Total Time Elapsed, Max Health(Event Player)))))))))))))))));
 		Wait(1, Ignore Condition);
 		"(do at end)"
 		Loop If(Is Game In Progress);
 	}
 }
 
-rule("Log Event - FB") # logDataStruct.Logpattern.finalBlow에 해당하는 로그
+rule("Log Event - FB")
 {
 	event
 	{
@@ -413,7 +402,7 @@ rule("Log Event - FB") # logDataStruct.Logpattern.finalBlow에 해당하는 로�
 	}
 }
 
-rule("Log Event - PD") # Suicide에 해당하는 로그 (따로 Handling하지 않음)
+rule("Log Event - PD")
 {
 	event
 	{
@@ -434,7 +423,7 @@ rule("Log Event - PD") # Suicide에 해당하는 로그 (따로 Handling하지 �
 	}
 }
 
-rule("Log Event - Resurrect") # logDataStruct.Logpattern.Resurrected에 해당하는 로그
+rule("Log Event - Resurrect")
 {
 	event
 	{
@@ -458,7 +447,7 @@ rule("Log Event - Resurrect") # logDataStruct.Logpattern.Resurrected에 해당�
 	}
 }
 
-rule("Log Event - Echo Duplicate Start") # logDataStruct.Logpattern.dupstart에 해당하는 로그
+rule("Log Event - Echo Duplicate Start")
 {
 	event
 	{
@@ -483,7 +472,7 @@ rule("Log Event - Echo Duplicate Start") # logDataStruct.Logpattern.dupstart에 
 	}
 }
 
-rule("Log Event - Echo Duplicate End")  # logDataStruct.Logpattern.dupend에 해당하는 로그
+rule("Log Event - Echo Duplicate End")
 {
 	event
 	{

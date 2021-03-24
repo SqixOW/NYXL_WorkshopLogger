@@ -28,7 +28,7 @@ class PlayerData: #Player stat on csv
     DamageTaken: str = '0'
     Deaths: str = '0'
     Eliminations: str = '0'
-    FinalBlow: str = '0'
+    FinalBlows: str = '0'
     EnvironmentalDeaths: str = '0'
     EnvironmentalKills: str = '0'
     HealingDealt: str = '0'
@@ -60,7 +60,7 @@ class LogPattern: # Regex log patterns
         self.pattern_dupstart = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(DuplicatingStart),(\w*),(\w*)')
         self.pattern_dupend = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(DuplicatingEnd),(\w*)')
         self.pattern_resurrect = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(Resurrected),(\w*)')
-        self.pattern_finalblow = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(FinalBlow),(\w*),(\w*),(\w*\s*\w*)')
+        self.pattern_finalblows = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(FinalBlows),(\w*),(\w*),(\w*\s*\w*)')
         self.pattern_suicide = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(Suicide),(\w*)')
         self.pattern_matchInfo = re.compile('(\[(.*?)\])\s(\w*\s*\w*\s*\w*|Watchpoint: Gibraltar|King\'s Row),(\w*\s*\w*),(\w*\s*\w*),(\d)')
         self.pattern_playerInfo = re.compile('(\[(.*?)\])\s(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76)')

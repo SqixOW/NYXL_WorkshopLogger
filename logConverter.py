@@ -59,8 +59,8 @@ class LogHandler: # Log Parsing & Handling
                 elif self.logpattern.pattern_playerInfo.match(line):    # pattern 2 : PlayerInfo
                     self.playerInfo_stream_handler(basket_list)                    
                     
-                elif self.logpattern.pattern_finalblow.match(line):    # pattern 4 : Final blow occured(handling DeathBy* variables), need to clear the DeathBy series after write to csv
-                    self.finalBlow_stream_handler(basket_list)
+                elif self.logpattern.pattern_finalblows.match(line):    # pattern 4 : Final blow occured(handling DeathBy* variables), need to clear the DeathBy series after write to csv
+                    self.finalBlows_stream_handler(basket_list)
 
                 elif self.logpattern.pattern_typeControl.match(line): # pattern 5 : handling 'Point' and 'RoundMap' if the map type is control
                     self.typeControl_stream_handler(basket_list)
@@ -143,7 +143,7 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].DamageTaken = basket_list[6]
         self.playerDataDict[userProfile].Deaths = basket_list[7]
         self.playerDataDict[userProfile].Eliminations = basket_list[8]
-        self.playerDataDict[userProfile].FinalBlow = basket_list[9]
+        self.playerDataDict[userProfile].FinalBlows = basket_list[9]
         self.playerDataDict[userProfile].EnvironmentalDeaths = basket_list[10]
         self.playerDataDict[userProfile].EnvironmentalKills = basket_list[11]
         self.playerDataDict[userProfile].HealingDealt = basket_list[12]
@@ -164,7 +164,7 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].TimeElapsed = basket_list[30]
         self.playerDataDict[userProfile].MaxHealth = basket_list[31].rstrip()
 
-    def finalBlow_stream_handler(self,basket_list): # set DeathBy ... 
+    def finalBlows_stream_handler(self,basket_list): # set DeathBy ... 
         self.playerDataDict[basket_list[3]].DeathByPlayer = basket_list[2]
         self.playerDataDict[basket_list[3]].DeathByHero = self.playerDataDict[basket_list[2]].Hero
         self.playerDataDict[basket_list[3]].DeathByAbility = basket_list[4]

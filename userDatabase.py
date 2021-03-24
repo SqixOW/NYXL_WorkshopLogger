@@ -32,5 +32,11 @@ class Database:
                          '빡겜유저이재곤':'LeeJaeGon',
                          'DIZAN':'Diem',
                          'qpdbdbqp':'Erster',
-                         'ropz':'Molly'
+                         'ropz':'Molly',
+                         'iwillbeBest':'Architect',
+                         'Silver':'Silver3',
+                         'Korppi':'Wya',
+                         'MT1Krystal':'Krystal',
+                         'Unhappy':'Highbee',
+                         'TrumpCard':'MoLanran'
                         }
