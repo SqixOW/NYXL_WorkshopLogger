@@ -52,6 +52,7 @@ rule("Call Spectator HUD")
 
 	actions
 	{
+		Destroy All HUD Text;
 		Call Subroutine(CreateSpectatorHUD);
 	}
 }
@@ -377,8 +378,8 @@ rule("Player Logging - Ongoing")
 			Event Player, Defensive Assists), Custom String("{0},{1},{2}", Player Stat(Event Player, Offensive Assists), Has Status(
 			Event Player, Burning), Custom String("{0},{1},{2}", Has Status(Event Player, Knocked Down), Has Status(Event Player, Asleep),
 			Custom String("{0},{1},{2}", Has Status(Event Player, Frozen), Has Status(Event Player, Unkillable), Custom String(
-			"{0},{1},{2}", Has Status(Event Player, Invincible), Has Status(Event Player, Phased Out), Custom String("{0},{1},{2}",
-			Has Status(Event Player, Rooted), Has Status(Event Player, Stunned), Has Status(Event Player, Hacked))))))))))))))))))))));
+			"{0},{1},{2}", Has Status(Event Player, Invincible), Has Status(Event Player, Hacked), Custom String("{0},{1}", Has Status(
+			Event Player, Rooted), Has Status(Event Player, Stunned))))))))))))))))))))));
 		Wait(1, Ignore Condition);
 		"(do at end)"
 		Loop If(Is Game In Progress);

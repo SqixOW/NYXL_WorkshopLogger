@@ -11,7 +11,7 @@ class LogHandler: # Log Parsing & Handling
     def __init__(self, args):
         self.logFile = args[0]
         self.csvFile = args[0].replace('.txt','.csv')
-        self.resourceDataFile = args[0].replace('.txt','_resourceData.csv')
+        #self.resourceDataFile = args[0].replace('.txt','_resourceData.csv')
         self.logpattern = LogPattern()
         self.matchInfo = MatchInfo()
         self.playerList = []
@@ -32,26 +32,27 @@ class LogHandler: # Log Parsing & Handling
            
     def log_handler(self):
         resultCsv = open(self.csvFile, 'w')
-        resourceDataCsv = open(self.resourceDataFile,'w')
+        #resourceDataCsv = open(self.resourceDataFile,'w')
         
         resultDictKey = PlayerData()
         resultDict = asdict(resultDictKey)
         resultWriter = csv.DictWriter(resultCsv, fieldnames = resultDict.keys(), lineterminator = '\n')
         resultWriter.writeheader()
-
+        """
         resourceDictKey = ResourceData()
         resourceDict = asdict(resourceDictKey)
         resourceWriter = csv.DictWriter(resourceDataCsv, fieldnames = resourceDict.keys(), lineterminator = '\n')
         resourceWriter.writeheader()
-
+        """
         with open(self.logFile) as fd:
             for line in fd.readlines():
                 basket_list = self.define_basket_list(line)
                 if self.logpattern.pattern_playerData.match(line):    # pattern 3 : Player Match data
                     self.playerData_stream_handler(basket_list)
+                    self.boolean_handler(basket_list)
                     self.write_csv(line[11:].split(',')[1], resultCsv, resultWriter)
-                    resourceDict = self.resourceData_handler(basket_list) # Handling Resource Data Category
-                    resourceWriter.writerow(asdict(resourceDict))
+                    #resourceDict = self.resourceData_handler(basket_list) # Handling Resource Data Category
+                    #resourceWriter.writerow(asdict(resourceDict))
                 
                 elif self.logpattern.pattern_matchInfo.match(line):       # pattern 1 : MatchInfo
                     self.matchInfo_stream_handler(basket_list)
@@ -78,7 +79,7 @@ class LogHandler: # Log Parsing & Handling
                     self.resurrect_stream_handler(basket_list)
 
         resultCsv.close()
-        resourceDataCsv.close()
+        #resourceDataCsv.close()
 
     def matchInfo_stream_handler(self,basket_list): # set MatchInfo Class
         self.matchInfo.Map = basket_list[0]
@@ -153,16 +154,26 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].UltimatesUsed = basket_list[16]
         self.playerDataDict[userProfile].HealingReceived = basket_list[17]
         self.playerDataDict[userProfile].UltimateCharge = basket_list[18]
-        self.playerDataDict[userProfile].PlayerClosest = basket_list[19]
-        self.playerDataDict[userProfile].Position = basket_list[20] + ',' + basket_list[21] + ',' + basket_list[22]
-        self.playerDataDict[userProfile].Cooldown1 = basket_list[24]
-        self.playerDataDict[userProfile].Cooldown2 = basket_list[25]
-        self.playerDataDict[userProfile].CooldownSecondaryFire = basket_list[26]
-        self.playerDataDict[userProfile].CooldownCrouching = basket_list[27]
-        self.playerDataDict[userProfile].IsCrouching = basket_list[28]
-        self.playerDataDict[userProfile].IsAlive = basket_list[29]
-        self.playerDataDict[userProfile].TimeElapsed = basket_list[30]
-        self.playerDataDict[userProfile].MaxHealth = basket_list[31].rstrip()
+        self.playerDataDict[userProfile].Position = basket_list[19] + ',' + basket_list[20] + ',' + basket_list[21]
+        self.playerDataDict[userProfile].Cooldown1 = basket_list[23]
+        self.playerDataDict[userProfile].Cooldown2 = basket_list[24]
+        self.playerDataDict[userProfile].CooldownSecondaryFire = basket_list[25]
+        self.playerDataDict[userProfile].CooldownCrouching = basket_list[26]
+        self.playerDataDict[userProfile].IsAlive = basket_list[27]
+        self.playerDataDict[userProfile].TimeElapsed = basket_list[28]
+        self.playerDataDict[userProfile].MaxHealth = basket_list[29]
+        self.playerDataDict[userProfile].Health = basket_list[30]
+        self.playerDataDict[userProfile].DefensiveAssists = basket_list[31]
+        self.playerDataDict[userProfile].OffensiveAssists = basket_list[32]
+        self.playerDataDict[userProfile].IsBurning = basket_list[33]
+        self.playerDataDict[userProfile].IsKnockedDown = basket_list[34]
+        self.playerDataDict[userProfile].IsAsleep = basket_list[35]
+        self.playerDataDict[userProfile].IsFrozen = basket_list[36]
+        self.playerDataDict[userProfile].IsUnkillable = basket_list[37]
+        self.playerDataDict[userProfile].IsInvincible = basket_list[38]
+        self.playerDataDict[userProfile].IsHacked = basket_list[39]
+        self.playerDataDict[userProfile].IsRooted = basket_list[40]
+        self.playerDataDict[userProfile].IsStunned = basket_list[41].rstrip()
 
     def finalBlows_stream_handler(self,basket_list): # set DeathBy ... 
         self.playerDataDict[basket_list[3]].DeathByPlayer = basket_list[2]
@@ -174,6 +185,57 @@ class LogHandler: # Log Parsing & Handling
         basket_list[len(basket_list)-1] = basket_list[len(basket_list)-1].rstrip()
         return basket_list
     
+    def boolean_handler(self, basket_list):
+        if self.playerDataDict[basket_list[1]].IsAlive == 'True':
+            self.playerDataDict[basket_list[1]].IsAlive = '1'
+        elif self.playerDataDict[basket_list[1]].IsAlive == 'False':
+            self.playerDataDict[basket_list[1]].IsAlive = '0'
+        
+        if self.playerDataDict[basket_list[1]].IsBurning == 'True':
+            self.playerDataDict[basket_list[1]].IsBurning = '1'
+        elif self.playerDataDict[basket_list[1]].IsBurning == 'False':
+            self.playerDataDict[basket_list[1]].IsBurning = '0'
+        
+        if self.playerDataDict[basket_list[1]].IsKnockedDown == 'True':
+            self.playerDataDict[basket_list[1]].IsKnockedDown = '1'
+        elif self.playerDataDict[basket_list[1]].IsKnockedDown == 'False':
+            self.playerDataDict[basket_list[1]].IsKnockedDown = '0'
+
+        if self.playerDataDict[basket_list[1]].IsFrozen == 'True':
+            self.playerDataDict[basket_list[1]].IsFrozen = '1'
+        elif self.playerDataDict[basket_list[1]].IsFrozen == 'False':
+            self.playerDataDict[basket_list[1]].IsFrozen = '0'
+        
+        if self.playerDataDict[basket_list[1]].IsUnkillable == 'True':
+            self.playerDataDict[basket_list[1]].IsUnkillable = '1'
+        elif self.playerDataDict[basket_list[1]].IsUnkillable== 'False':
+            self.playerDataDict[basket_list[1]].IsUnkillable = '0'
+        
+        if self.playerDataDict[basket_list[1]].IsInvincible == 'False':
+            self.playerDataDict[basket_list[1]].IsInvincible = '0'
+        elif self.playerDataDict[basket_list[1]].IsInvincible == 'True':
+            self.playerDataDict[basket_list[1]].IsInvincible = '1'
+
+        if self.playerDataDict[basket_list[1]].IsAsleep == 'True':
+            self.playerDataDict[basket_list[1]].IsAsleep = '1'
+        elif self.playerDataDict[basket_list[1]].IsAsleep== 'False':
+            self.playerDataDict[basket_list[1]].IsAsleep = '0'
+
+        if self.playerDataDict[basket_list[1]].IsRooted == 'True':
+            self.playerDataDict[basket_list[1]].IsRooted = '1'
+        elif self.playerDataDict[basket_list[1]].IsRooted== 'False':
+            self.playerDataDict[basket_list[1]].IsRooted = '0'        
+
+        if self.playerDataDict[basket_list[1]].IsStunned == 'True':
+            self.playerDataDict[basket_list[1]].IsStunned = '1'
+        elif self.playerDataDict[basket_list[1]].IsStunned == 'False':
+            self.playerDataDict[basket_list[1]].IsStunned = '0'        
+
+        if self.playerDataDict[basket_list[1]].IsHacked == 'True':
+            self.playerDataDict[basket_list[1]].IsHacked = '1'        
+        elif self.playerDataDict[basket_list[1]].IsHacked == 'False':
+            self.playerDataDict[basket_list[1]].IsHacked = '0'        
+
     def write_csv(self, player, result_csv, writer):
         p = asdict(self.playerDataDict[player])
         writer.writerow(p)

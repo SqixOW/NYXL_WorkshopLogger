@@ -29,7 +29,7 @@ class Converter:
             elif self.logPattern.pattern_playerData.match(line):
                 self.playerData_stream_handler(line,fd)
                 
-            elif self.logPattern.pattern_finalblow.match(line):
+            elif self.logPattern.pattern_finalblows.match(line):
                 self.finalBlow_stream_handler(line,fd)
                 
             elif self.logPattern.pattern_dupstart.match(line) or self.logPattern.pattern_dupend.match(line) or self.logPattern.pattern_resurrect.match(line) or self.logPattern.pattern_suicide.match(line):

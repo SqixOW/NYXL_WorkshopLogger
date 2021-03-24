@@ -250,12 +250,16 @@ rule("Player Logging - Ongoing")
 			Environmental Kills), Custom String("{0},{1},{2}", Player Stat(Event Player, Healing Dealt), Player Stat(Event Player,
 			Objective Kills), Custom String("{0},{1},{2}", Player Stat(Event Player, Solo Kills), Player Stat(Event Player,
 			Ultimates Earned), Custom String("{0},{1},{2}", Player Stat(Event Player, Ultimates Used), Player Hero Stat(Event Player,
-			All Heroes, Healing Received), Custom String("{0},{1},{2}", Ultimate Charge Percent(Event Player), Player Closest To Reticle(
-			Event Player, All Teams), Custom String("{0},{1},{2}", Position Of(Event Player), Team Of(Event Player), Custom String(
-			"{0},{1},{2}", Ability Cooldown(Event Player, Button(Ability 1)), Ability Cooldown(Event Player, Button(Ability 2)),
-			Custom String("{0},{1},{2}", Ability Cooldown(Event Player, Button(Secondary Fire)), Ability Cooldown(Event Player, Button(
-			Crouch)), Custom String("{0},{1},{2}", Is Crouching(Event Player), Is Alive(Event Player), Custom String("{0},{1}",
-			Total Time Elapsed, Max Health(Event Player)))))))))))))))));
+			All Heroes, Healing Received), Custom String("{0},{1},{2}", Ultimate Charge Percent(Event Player), Position Of(Event Player),
+			Custom String("{0},{1},{2}", Team Of(Event Player), Ability Cooldown(Event Player, Button(Ability 1)), Custom String(
+			"{0},{1},{2}", Ability Cooldown(Event Player, Button(Ability 2)), Ability Cooldown(Event Player, Button(Secondary Fire)),
+			Custom String("{0},{1},{2}", Ability Cooldown(Event Player, Button(Crouch)), Is Alive(Event Player), Custom String(
+			"{0},{1},{2}", Total Time Elapsed, Max Health(Event Player), Custom String("{0},{1},{2}", Health(Event Player), Player Stat(
+			Event Player, Defensive Assists), Custom String("{0},{1},{2}", Player Stat(Event Player, Offensive Assists), Has Status(
+			Event Player, Burning), Custom String("{0},{1},{2}", Has Status(Event Player, Knocked Down), Has Status(Event Player, Asleep),
+			Custom String("{0},{1},{2}", Has Status(Event Player, Frozen), Has Status(Event Player, Unkillable), Custom String(
+			"{0},{1},{2}", Has Status(Event Player, Invincible), Has Status(Event Player, Hacked), Custom String("{0},{1}", Has Status(
+			Event Player, Rooted), Has Status(Event Player, Stunned))))))))))))))))))))));
 		Wait(1, Ignore Condition);
 		"(do at end)"
 		Loop If(Is Game In Progress);

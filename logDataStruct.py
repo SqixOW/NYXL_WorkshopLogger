@@ -38,12 +38,10 @@ class PlayerData: #Player stat on csv
     UltimatesUsed: str = '0'
     HealingReceived: str = '0'
     UltimateCharge: str = '0'
-    PlayerClosest: str = ''
     Cooldown1: str = '0'
     Cooldown2: str = '0'
     CooldownSecondaryFire: str = '0'
     CooldownCrouching: str = '0'
-    IsCrouching: str = 'False'
     IsAlive: str = 'True'
     TimeElapsed: str = '0'
     Position: str = ''
@@ -54,6 +52,19 @@ class PlayerData: #Player stat on csv
     Resurrected: str = ''
     DuplicatedHero: str = ''
     DuplicateStatus: str = ''
+    Health: str = ''
+    DefensiveAssists: str = '0'
+    OffensiveAssists: str = '0'
+    IsBurning: str = '0'
+    IsKnockedDown: str = '0'
+    IsAsleep: str = '0'
+    IsFrozen: str = '0'
+    IsUnkillable: str = '0'
+    IsInvincible: str = '0'
+    IsRooted: str = '0'
+    IsStunned: str = '0'
+    IsHacked: str = '0'
+
 
 class LogPattern: # Regex log patterns
     def __init__(self):
@@ -66,4 +77,4 @@ class LogPattern: # Regex log patterns
         self.pattern_playerInfo = re.compile('(\[(.*?)\])\s(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76),(\w*|Soldier: 76)')
         self.pattern_typeControl = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+)')
         self.pattern_typeOthers = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(True|False),(\d*\.?\d+)')
-        self.pattern_playerData = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(\w*),(\w*\s*\w*|Soldier: 76|D.Va),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\w*),(\W[-]?(\d*\.?\d+), [-]?(\d*\.?\d+), [-]?(\d*\.?\d+)\W),(\w*\s*\w*),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+)')
+        self.pattern_playerData = re.compile('(\[(.*?)\])\s(\d*\.?\d+),(\w*),(\w*\s*\w*|Soldier: 76|D.Va),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+),(\W[-]?(\d*\.?\d+), [-]?(\d*\.?\d+), [-]?(\d*\.?\d+)\W),(\w*\s*\w*),(\d*\.?\d+),(\d*\.?\d+),(\d*\.?\d+)')
