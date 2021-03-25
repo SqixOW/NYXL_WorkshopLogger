@@ -7,6 +7,7 @@ class MatchInfo: #Information about current match (map, type, map section, team 
     MapType: str = ''
     RoundName: str = ''
     Section: str = '-1'
+    Round: str = ''
     Team_1: str = ''
     Team_2: str = ''
     Offense: str = ''

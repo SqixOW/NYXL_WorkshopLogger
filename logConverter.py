@@ -86,20 +86,21 @@ class LogHandler: # Log Parsing & Handling
         self.matchInfo.Map = basket_list[0]
         self.matchInfo.Team_1 = basket_list[1]
         self.matchInfo.Team_2 = basket_list[2]
+        self.matchInfo.Round = basket_list[3]
         self.matchInfo.Section = str(int(self.matchInfo.Section) + 1)
         self.set_map_type()
         if self.matchInfo.MapType == 'Control':
             maplists = Controls()
             if self.matchInfo.Map == 'Ilios':
-                self.matchInfo.RoundName = maplists.ilios[int(self.matchInfo.Section)]
+                self.matchInfo.RoundName = maplists.ilios[int(self.matchInfo.Round)]
             if self.matchInfo.Map == 'Lijiang Tower':
-                self.matchInfo.RoundName = maplists.lijiang_tower[int(self.matchInfo.Section)]
+                self.matchInfo.RoundName = maplists.lijiang_tower[int(self.matchInfo.Round)]
             if self.matchInfo.Map == 'Oasis':
-                self.matchInfo.RoundName = maplists.oasis[int(self.matchInfo.Section)]
+                self.matchInfo.RoundName = maplists.oasis[int(self.matchInfo.Round)]
             if self.matchInfo.Map == 'Busan':
-                self.matchInfo.RoundName = maplists.busan[int(self.matchInfo.Section)]
+                self.matchInfo.RoundName = maplists.busan[int(self.matchInfo.Round)]
             if self.matchInfo.Map == 'Nepal':
-                self.matchInfo.RoundName = maplists.nepal[int(self.matchInfo.Section)]
+                self.matchInfo.RoundName = maplists.nepal[int(self.matchInfo.Round)]
         else:
             self.matchInfo.Offense = self.matchInfo.Team_2
             self.matchInfo.Defense = self.matchInfo.Team_1
