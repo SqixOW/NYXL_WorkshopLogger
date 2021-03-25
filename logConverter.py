@@ -18,7 +18,8 @@ class LogHandler: # Log Parsing & Handling
         self.initialTimestamp = 0
         self.Maps = Maps()
         self.playerDataDict = {}   
-        self.team1OffenseFlag = False
+        self.team1OffenseFlag = 'False'
+        self.sectionNumber = 0
 
     def set_map_type(self):
         if self.matchInfo.Map in self.Maps.control:
@@ -115,7 +116,7 @@ class LogHandler: # Log Parsing & Handling
             idx = self.playerList.index(basket_list[1])
         userProfile = basket_list[1]
         self.playerDataDict[userProfile].Map = self.matchInfo.Map
-        self.playerDataDict[userProfile].Section = self.matchInfo.Section
+        self.playerDataDict[userProfile].Section = str(self.sectionNumber)
         self.playerDataDict[userProfile].Timestamp = str(round(float(basket_list[0]) - self.initialTimestamp,2))
 
         if userProfile in self.playerList[0:6]: # set team
@@ -127,15 +128,15 @@ class LogHandler: # Log Parsing & Handling
             self.playerDataDict[userProfile].RoundName = self.matchInfo.RoundName
         else:
             if userProfile in self.playerList[0:6]:
-                if self.team1OffenseFlag == False:
+                if self.team1OffenseFlag == 'False':
                     self.playerDataDict[userProfile].RoundName = 'Defense'
-                elif self.team1OffenseFlag == True:
+                elif self.team1OffenseFlag == 'True':
                     self.playerDataDict[userProfile].RoundName = 'Offense'
             else:
                 self.playerDataDict[userProfile].Team = self.matchInfo.Team_2
-                if self.team1OffenseFlag == False:
+                if self.team1OffenseFlag == 'False':
                     self.playerDataDict[userProfile].RoundName = 'Offense'
-                elif self.team1OffenseFlag == True:
+                elif self.team1OffenseFlag == 'True':
                     self.playerDataDict[userProfile].RoundName = 'Defense'
         self.playerDataDict[userProfile].Hero = basket_list[2]
         self.playerDataDict[userProfile].HeroDamageDealt = basket_list[3]
@@ -262,12 +263,14 @@ class LogHandler: # Log Parsing & Handling
             self.playerDataDict[self.playerList[i+6]].Point = basket_list[2]
         
     def typeOthers_stream_handler(self,basket_list): # set point if the map is not Control type
-        if basket_list[1] == "False":
-            self.team1OffenseFlag = False            
+        if basket_list[1] != self.team1OffenseFlag:
+            self.sectionNumber = self.sectionNumber + 1
+        if basket_list[1] == 'False':
+            self.team1OffenseFlag = 'False'            
             for i in range(0, 6):
                 self.playerDataDict[self.playerList[i+6]].Point = basket_list[2]
-        elif basket_list[1] == "True":
-            self.team1OffenseFlag = True
+        elif basket_list[1] == 'True':
+            self.team1OffenseFlag = 'True'
             for i in range(0, 6):
                 self.playerDataDict[self.playerList[i]].Point = basket_list[2]
     

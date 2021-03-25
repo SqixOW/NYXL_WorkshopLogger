@@ -33,7 +33,7 @@ class Database:
                          'DIZAN':'Diem',
                          'qpdbdbqp':'Erster',
                          'ropz':'Molly',
-                         'iwillbeBest':'Architect',
+                         'IwillbeBest':'Architect',
                          'Silver':'Silver3',
                          'Korppi':'Wya',
                          'MT1Krystal':'Krystal',
