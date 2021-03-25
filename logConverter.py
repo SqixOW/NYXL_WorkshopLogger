@@ -86,7 +86,7 @@ class LogHandler: # Log Parsing & Handling
         self.matchInfo.Map = basket_list[0]
         self.matchInfo.Team_1 = basket_list[1]
         self.matchInfo.Team_2 = basket_list[2]
-        self.matchInfo.Section = basket_list[3]
+        self.matchInfo.Section = str(int(self.matchInfo.Section) + 1)
         self.set_map_type()
         if self.matchInfo.MapType == 'Control':
             maplists = Controls()
@@ -150,7 +150,7 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].DamageTaken = basket_list[6]
         self.playerDataDict[userProfile].Deaths = basket_list[7]
         self.playerDataDict[userProfile].Eliminations = basket_list[8]
-        self.playerDataDict[userProfile].FinalBlows = basket_list[9]
+        self.playerDataDict[userProfile].FinalBlows = str(int(basket_list[9]) + int(basket_list[11]))
         self.playerDataDict[userProfile].EnvironmentalDeaths = basket_list[10]
         self.playerDataDict[userProfile].EnvironmentalKills = basket_list[11]
         self.playerDataDict[userProfile].HealingDealt = basket_list[12]
