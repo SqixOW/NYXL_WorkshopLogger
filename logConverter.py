@@ -116,7 +116,12 @@ class LogHandler: # Log Parsing & Handling
             idx = self.playerList.index(basket_list[1])
         userProfile = basket_list[1]
         self.playerDataDict[userProfile].Map = self.matchInfo.Map
-        self.playerDataDict[userProfile].Section = str(self.sectionNumber)
+
+        if self.matchInfo.MapType != 'Control':
+            self.playerDataDict[userProfile].Section = str(self.sectionNumber)
+        else:
+            self.playerDataDict[userProfile].Section = self.matchInfo.Section
+
         self.playerDataDict[userProfile].Timestamp = str(round(float(basket_list[0]) - self.initialTimestamp,2))
 
         if userProfile in self.playerList[0:6]: # set team
@@ -263,7 +268,7 @@ class LogHandler: # Log Parsing & Handling
             self.playerDataDict[self.playerList[i+6]].Point = basket_list[2]
         
     def typeOthers_stream_handler(self,basket_list): # set point if the map is not Control type
-        if basket_list[1] != self.team1OffenseFlag:
+        if basket_list[1] != self.team1OffenseFlag and self.matchInfo.MapType != 'Control':
             self.sectionNumber = self.sectionNumber + 1
         if basket_list[1] == 'False':
             self.team1OffenseFlag = 'False'            

@@ -4,7 +4,7 @@ class Controls: # Control map subtitles
         self.lijiang_tower = ['Night Market','Garden','Control Tower']
         self.nepal = ['Village', 'Shrine', 'Sanctum']
         self.oasis = ['City Center', 'Gardens', 'University']
-        self.busan = ['Sanctuary', 'Downtown', 'Meka Base']
+        self.busan = ['Downtown', 'Sanctuary', 'Meka Base']
 
 class Maps: # Map types and the name of maps
     def __init__(self):
