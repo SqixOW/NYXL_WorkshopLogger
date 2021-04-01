@@ -159,7 +159,7 @@ class LogHandler: # Log Parsing & Handling
         self.playerDataDict[userProfile].SoloKills = basket_list[14]
         self.playerDataDict[userProfile].UltimatesEarned = basket_list[15]
         self.playerDataDict[userProfile].UltimatesUsed = basket_list[16]
-        self.playerDataDict[userProfile].HealingReceived = basket_list[17]
+        self.playerDataDict[userProfile].HealingReceived = basket_list[17] # if workshop code gonna improved then we should have delete handling process about healingreceived
         self.playerDataDict[userProfile].UltimateCharge = basket_list[18]
         self.playerDataDict[userProfile].Position = basket_list[19] + ',' + basket_list[20] + ',' + basket_list[21]
         self.playerDataDict[userProfile].Cooldown1 = basket_list[23]
@@ -307,6 +307,7 @@ class LogHandler: # Log Parsing & Handling
         resourceData.MaxHealth = self.playerDataDict[basket_list[2]].MaxHealth
         resourceData.Position = self.playerDataDict[basket_list[2]].Position
         return resourceData
+
 
 
 def main():

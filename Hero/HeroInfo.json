@@ -1,0 +1,241 @@
+{
+    "D.Va":
+    {
+        "name": "D.Va",
+        "MaxHP": 300,
+        "MaxArmor": 300,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "BasicAttack Hitscan Shotgun",
+            "Name": "Fusion Cannons",
+            "Ammo": -1,
+            "MaxDamageRange": 10,
+            "MinDamageRange": 20,
+            "MaxDamage": 2,
+            "MinDamage": 0.6,
+            "Pellets": 11,
+            "RPS": 6.67,
+            "Critical": true,
+            "MovementSpeed": 2.75
+        },
+        "SecondaryFire":
+        {
+            "Type": "Mobile Defense",
+            "Name": "Defensive Matrix",
+            "Recharge": 8,
+            "Duration": 2,
+            "Range": 10,
+            "Cooldown": 1.5,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Damaging Movement",
+            "Name": "Boosters",
+            "Damage": 10,
+            "MaxRange": 23.98,
+            "Duration": 2,
+            "Cooldown": 4,
+            "MovementSpeed": 11.99
+        },
+        "Ability2":
+        {
+            "Type": "RapidFire Linear Splash Projectile",
+            "MaxDamage": 7,
+            "MinDamage": 2,
+            "MaxSplash": 4,
+            "MinSplash": 1,
+            "RPS": 11,
+            "ProjectileSpeed": 40,
+            "Radius": 1.5,
+            "CastingTime": 0.25,
+            "Duration": 1.6,
+            "Cooldown": 8,
+            "Critical": false
+        },
+        "Passive":
+        {
+            "Type": "Transformation",
+            "Duration": 1,
+            "Name": "Eject",
+            "Hero":
+            {
+                "Name": "Songhana",
+                "MaxHP": 150,
+                "MaxArmor": 0,
+                "MaxShield": 0,
+                "PrimaryFire":
+                {
+                    "Type": "BasicAttack Projectile",
+                    "Name": "Light Gun",
+                    "Ammo": 20,
+                    "Damage": 14,
+                    "Pellets": 1,
+                    "RPS": 7,
+                    "ProjectileSpeed": 50,
+                    "Critical": true,
+                    "MovementSpeed": 5.5
+                },
+                "Ultimate":
+                {
+                    "Type": "Cast Ultimate Transformation",
+                    "Name": "Call Mech",
+                    "Damage": 50,
+                    "Duration": 2,
+                    "Cost": 320
+                }
+            }
+        },
+        "Ultimate":
+        {
+            "Type": "Ultimate TimedBomb",
+            "Name": "Self-Destruct",
+            "MaxDamage": 1000,
+            "MinDamage": 100,
+            "MaxDamageRange": 0,
+            "MinDamageRange": 20,
+            "Duration": 3,
+            "Cost": 1540
+        }
+    },
+    "Reinhardt":
+    {
+        "name": "Reinhardt",
+        "MaxHP": 300,
+        "MaxArmor": 250,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Self-buff",
+            "Name": "Steadfast",
+            "KnockbackResistance": 0.5
+        },
+        "PrimaryFire":
+        {
+            "Type": "BasicAttack Melee",
+            "Name": "Rocket Hammer",
+            "Ammo": -1,
+            "Range": 5,
+            "Damage": 85,
+            "RPS": 1.15,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Mobile Barrier",
+            "Name": "Barrier Field",
+            "BarrierHP": 1600,
+            "Restoration": 200,
+            "MovementSpeed": 3.85,
+            "Cooldown": 5
+        },
+        "Ability1":
+        {
+            "Type": "Damaging Stunning Movement",
+            "Name": "Charge",
+            "MinDamage": 50,
+            "MaxDamage": 300,
+            "MaxRange": 55,
+            "MovementSpeed": 16.66,
+            "Cooldown": 10
+        },
+        "Ability2":
+        {
+            "Type": "Linear Piercing Projectile",
+            "Name": "Fire Strike",
+            "Damage": 100,
+            "ProjectileSpeed": 26.66,
+            "CastingTime": 0.6,
+            "Cooldown": 6,
+            "Critical": false
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Ultimate Area-Stunning",
+            "Name": "Earthshatter",
+            "CastingTime": 0.6,
+            "Damage": 50,
+            "MaxHeight": 2,
+            "MaxRange": 20,
+            "MinDuration": 2.5,
+            "MaxDuration": 2.5,
+            "Cost": 1540
+        }
+    },
+    "Wrecking Ball":
+    {
+        "name": "Wrecking Ball",
+        "MaxHP": 500,
+        "MaxArmor": 100,
+        "MaxShield": 0,
+        "Primary Fire":
+        {
+            "Type": "BasicAttack RapidFire Hitscan",
+            "Name": "Quad Cannons",
+            "Ammo": 80,
+            "MaxDamageRange": 15,
+            "MinDamageRange": 25,
+            "MaxDamage": 5,
+            "MinDamage": 2.5,
+            "Pellets": 1,
+            "RPS": 25,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "Secondary Fire":
+        {
+            "Type": "Self-buff Damaging Linear Projectile Movement",
+            "Name": "Grappling Claw",
+            "Damage": 50,
+            "MinRange": 5,
+            "MaxRange": 20,
+            "MovementSpeed": 18,
+            "Cooldown": 5
+        },
+        "Crouching":
+        {
+            "Type": "Damaging Bombardment Movement",
+            "Name": "Piledriver",
+            "MinDamage": 20,
+            "MaxDamage": 100,
+            "MinDamageRange": 8,
+            "MaxDamageRange": 0,
+            "MovementSpeed": 98,
+            "Duration": 0.5,
+            "Cooldown": 10
+        },
+        "Ability1":
+        {
+            "Type": "Transformation",
+            "Name": "Roll",
+            "MovementSpeed": 10,
+            "CastingTime": 0.75
+        },
+        "Ability2":
+        {
+            "Type": "Personal Barrier",
+            "Name": "Adaptive Shield",
+            "MinTemporaryShield": 100,
+            "AdditionalTemporaryShield": 75,
+            "Range": 7,
+            "Duration": 7,
+            "Cooldown": 15
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Ultimate Object-deploying",
+            "Name": "Minefield",
+            "Generate": 15,
+            "Damage" : 130,
+            "Range": 6,
+            "UnitHP" : 50,
+            "ProjectileSpeed": 12,
+            "CastingTime": 0.1,
+            "Duration": 20,
+            "Cost": 1540
+        }
+    }
+}
+

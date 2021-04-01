@@ -38,5 +38,10 @@ class Database:
                          'Korppi':'Wya',
                          'MT1Krystal':'Krystal',
                          'Unhappy':'Highbee',
-                         'TrumpCard':'MoLanran'
+                         'TrumpCard':'MoLanran',
+                         'Liuzixuan':'LIP',
+                         'SorryMaker':'Sleep',
+                         'Freaks':'n1ghtg0d',
+                         '태도':'Attitude',
+                         '폴라폴라포':'PolaPo'
                         }
