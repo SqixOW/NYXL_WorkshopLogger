@@ -559,6 +559,143 @@
             "ProjectileSpeed": 25,
             "Cost": 2100
         }
+    },
+    "Genji":
+    {
+        "Name": "Genji",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Name": "Cyber-Agility"
+        },
+        "PrimaryFire":
+        {
+            "Type": "BurstFire Linear Projectile",
+            "Name": "Succesive Throwing Stars",
+            "Ammo": 30,
+            "Reloading": 1,
+            "Damage": 28,
+            "RPS": 3,
+            "Critical": true,
+            "ProjectileSpeed": 60,
+            "MovementSpeed": 6
+        },
+        "SecondaryFire":
+        {
+            "Type": "Shotgun Linear Projectile",
+            "Name": "Fan of Blades",
+            "Damage": 28,
+            "RPS": 4.41,
+            "Critical": true,
+            "ProjectileSpeed": 60,
+            "MovementSpeed": 6
+        },
+        "Ability1":
+        {
+            "Type": "Damaging Movement",
+            "Name": "Swift Strike",
+            "Damage": 50,
+            "Range": 15,
+            "MovementSpeed": 50,
+            "Cooldown": 8
+        },
+        "Ability2":
+        {
+            "Type": "Ranged Counterattack",
+            "Name": "Deflect",
+            "Duration": 2,
+            "Cooldown": 8
+        },
+        "Ultimate":
+        {
+            "Type": "Transformation Ultimate Melee",
+            "Name": "Dragonblade",
+            "Damage": 120,
+            "Duration": 6,
+            "Range": 5,
+            "RPS": 1.17,
+            "MovementSpeed": 8,
+            "Critical": false,
+            "Cost": 1680
+        }
+    },
+    "Doomfist":
+    {
+        "Name": "Doomfist",
+        "MaxHP": 250,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Name": "The Best Defense...",
+            "MinShieldGenerate": 30,
+            "MaxShieldGenerate": 75,
+            "MaxShield": 150,
+            "Decay": 3
+        },
+        "PrimaryFire":
+        {
+            "Type": "Shotgun Projectile",
+            "Name": "Hand Cannon",
+            "Ammo": 4,
+            "Reloading": 0.65,
+            "MaxDamage": 6,
+            "MinDamage": 1.8,
+            "MaxDamageRange": 15,
+            "Pellets": 11,
+            "RPS": 3.3,
+            "Critical": true,
+            "ProjectileSpeed": 80,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Charged Damaging Stunning Movement",
+            "Name": "Rocket Punch",
+            "MinDamage": 49,
+            "MaxDamage": 150,
+            "MinWallDamage": 49,
+            "MaxWallDamage": 100,
+            "Charge": 1.4,
+            "MinRange": 6.5,
+            "MaxRange": 20,
+            "Duration": 1,
+            "MovementSpeed": 40,
+            "Cooldown": 4
+        },
+        "Ability1":
+        {
+            "Type": "Damaging Movement",
+            "Name": "Rising Uppercut",
+            "Damage": 50,
+            "Duration": 0.6,
+            "Range": 5,
+            "Cooldown": 6
+        },
+        "Ability2":
+        {
+            "Type": "Charged Damaging Movement",
+            "Name": "Seismic Slam",
+            "MinDamage": 25,
+            "MaxDamage": 125,
+            "Range": 15,
+            "Charge": 1.5,
+            "Cooldown": 6
+        },
+        "Ultimate":
+        {
+            "Type": "Channeled Ultimate Kinetic Bombardment",
+            "Name": "Meteor Strike",
+            "MinDamage": 15,
+            "MaxDamage": 300,
+            "Radius": 7.5,
+            "CastingTime": 1,
+            "Duration": 4,
+            "MovementSpeed": 11,
+            "Cost": 1680
+        }
     }
 }
 
