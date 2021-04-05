@@ -1,7 +1,7 @@
 {
     "D.Va":
     {
-        "name": "D.Va",
+        "Name": "D.Va",
         "MaxHP": 300,
         "MaxArmor": 300,
         "MaxShield": 0,
@@ -101,7 +101,7 @@
     },
     "Reinhardt":
     {
-        "name": "Reinhardt",
+        "Name": "Reinhardt",
         "MaxHP": 300,
         "MaxArmor": 250,
         "MaxShield": 0,
@@ -166,7 +166,7 @@
     },
     "Wrecking Ball":
     {
-        "name": "Wrecking Ball",
+        "Name": "Wrecking Ball",
         "MaxHP": 500,
         "MaxArmor": 100,
         "MaxShield": 0,
@@ -240,7 +240,7 @@
     },
     "Roadhog":
     {
-        "name": "Roadhog",
+        "Name": "Roadhog",
         "MaxHP": 600,
         "MaxArmor": 0,
         "MaxShield": 0,
@@ -308,6 +308,256 @@
             "CastingTime": 0.5,
             "Duration": 6,
             "Costs": 2240
+        }
+    },
+    "Sigma":
+    {
+        "Name": "Sigma",
+        "MaxHP": 300,
+        "MaxArmor": 0,
+        "MaxShield": 100,
+        "PrimaryFire":
+        {
+            "Type": "BurstFire Linear Splash Prjectile",
+            "Name": "Hyperspheres",
+            "Ammo": -1,
+            "Range": 20,
+            "Radius": 3,
+            "MaxDamage": 55,
+            "MaxSplashDamage": 30,
+            "MinSplashDamage": 9,
+            "MaxSplashSelfDamage": 2.625,
+            "MinSplashSelfDamage": 8.75,
+            "RPS": 1.33,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Mobile Barrier",
+            "Name": "Experimental Barrier",
+            "BarrierHP": 700,
+            "Restoration": 80,
+            "MovementSpeed": 5.5,
+            "ProjectileSpeed": 16.5,
+            "Cooldown": 2
+        },
+        "Ability1":
+        {
+            "Type": "Mobile Defense Self-buff",
+            "Name": "Kinetic Grasp",
+            "MaxBarrier": 400,
+            "Decay": 7,
+            "MovementSpeed": 5.5,
+            "Duration": 2,
+            "Cooldown": 12
+        },
+        "Ability2":
+        {
+            "Type": "Stunning Arcing Splash Projectile",
+            "Name": "Accretion",
+            "Damage": 70,
+            "ProjectileSpeed": 37.5,
+            "MaxSplashDamage": 40,
+            "MinSplashDamage": 12,
+            "MaxSplashSelfDamage": 6,
+            "MinSplashSelfDamage": 20,
+            "CastingTime": 0.65,
+            "MinDuration": 0.75,
+            "MaxDuration": 0.75,
+            "Cooldown": 10,
+            "Critical": false
+        },
+        "Ultimate":
+        {
+            "Type": "Channeled Ultimate",
+            "Name": "Gravitic Flux",
+            "CastingTime": 0.6,
+            "LiftDamage": 50,
+            "DropDamage": 50,
+            "Range": 10,
+            "Radius": 7,
+            "LiftDuration": 2,
+            "DropDuration": 0.6,
+            "MovementSpeed": 7.15,
+            "Cost": 1960
+        }
+    },
+    "Orisa":
+    {
+        "Name": "Orisa",
+        "MaxHP": 200,
+        "MaxArmor": 250,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "RapidFire Projectile",
+            "Name": "Fusion Driver",
+            "Ammo": 150,
+            "Reloading": 2.66,
+            "Damage": 11,
+            "RPS": 12.5,
+            "Critical": true,
+            "ProjectileSpeed": 120,
+            "MovementSpeed": 2.75
+        },
+        "SecondaryFire":
+        {
+            "Type": "Linear Displacement Projectile",
+            "Name": "Halt!",
+            "Radius": 5,
+            "CastingTime": 0.45,
+            "ProjectileSpeed": 25,
+            "MovementSpeed": 5.5,
+            "Duration": 0.65,
+            "Cooldown": 8
+        },
+        "Ability1":
+        {
+            "Type": "Self-buff",
+            "Name": "Fortify",
+            "DamageResistance": 40,
+            "Duration": 4,
+            "MovementSpeed": 5.5,
+            "Cooldown": 10
+        },
+        "Ability2":
+        {
+            "Type": "Arcing Projectile Barrier",
+            "Name": "Protective Barrier",
+            "BarrierHP": 600,
+            "ProjectileSpeed": 25,
+            "Duration": 20,
+            "Cooldown": 10
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Ultimate",
+            "Name": "Supercharger",
+            "MaxHP": 200,
+            "CastingTime": 1,
+            "DamageAmplify": 50,
+            "Radius": 25,
+            "Duration": 16,
+            "Cost": 1680
+        }
+    },
+    "Winston":
+    {
+        "Name": "Winston",
+        "MaxHP": 350,
+        "MaxArmor": 150,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "FrontalAreaOfEffect Beam",
+            "Name": "Tesla Cannon",
+            "Ammo": 100,
+            "Reloading": 1.5,
+            "Damage": 3,
+            "RPS": 20,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Damaging Catapult Movement",
+            "Name": "Fortify",
+            "MinDamage": 1,
+            "MaxDamage": 50,
+            "Range": 20,
+            "Radius": 5,
+            "Cooldown": 6
+        },
+        "Ability2":
+        {
+            "Type": "Semi-immobile Barrier",
+            "Name": "Barrier Projector",
+            "BarrierHP": 700,
+            "Radius": 5,
+            "Duration": 9,
+            "Cooldown": 13
+        },
+        "Ultimate":
+        {
+            "Type": "Transformation Ultimate",
+            "Name": "Primal Rage",
+            "MaxHP": 850,
+            "MaxArmor": 150,
+            "RPS": 1.55,
+            "Range": 4,
+            "Duration": 10,
+            "Damage": 40,
+            "MovementSpeed": 7.15,
+            "Cost": 1540,
+            "Critical": false
+        }
+    },
+    "Zarya":
+    {
+        "Name": "Zarya",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 200,
+        "Passive":
+        {
+            "Name": "Energy",
+            "MaxEnergy": 100,
+            "MinEnergy": 0,
+            "EnergyIncrease": 5,
+            "EnergyDecrease": 1.8
+        },
+        "PrimaryFire":
+        {
+            "Type": "Linear Beam",
+            "Name": "Energy Beam",
+            "Ammo": 100,
+            "Reloading": 1.5,
+            "MinDamage": 95,
+            "MaxDamage": 170,
+            "RPS": 25,
+            "Critical": false,
+            "Range": 15,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Arcing Splash Projectile",
+            "Name": "Explosive Charge",
+            "Radius": 2.5,
+            "MinDamage": 47,
+            "MaxDamage": 95,
+            "ProjectileSpeed": 25,
+            "MovementSpeed": 5.5,
+            "RPS": 1,
+            "AmmoConsume": 25,
+            "Critical": false
+        },
+        "Ability1":
+        {
+            "Type": "Personal Barrier",
+            "Name": "Particle Barrier",
+            "BarrierHP": 200,
+            "Duration": 2,
+            "Cooldown": 10
+        },
+        "Ability2":
+        {
+            "Type": "Ally-Projected Personal Barrier",
+            "Name": "Projected Barrier",
+            "BarrierHP": 200,
+            "Duration": 2,
+            "Cooldown": 8
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Ultimate Arcing Projectile Displacement",
+            "Name": "Graviton Surge",
+            "Damage": 5.5,
+            "Duration": 4,
+            "Radius": 6,
+            "ProjectileSpeed": 25,
+            "Cost": 2100
         }
     }
 }
