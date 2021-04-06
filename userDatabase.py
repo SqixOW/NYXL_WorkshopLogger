@@ -27,6 +27,15 @@ class Database:
                          'NYE007':'ivy',
                          'NYE014':'Feath5r',
                          'Lafan':'Choisehwan',
+                         'HZS010':'SEOMINSOO',
+                         'HZS009':'GodsB',
+                         'HZS007':'SHY',
+                         'HZS008':'Takoyaki',
+                         'HZS011':'Bernar',
+                         'HZS001':'iDK',
+                         'HZS002':'MCD',
+                         'HZS003':'Guxue',
+                         'HZS012':'Architect',
                          'Popstar':'MYKaylee',
                          'STAR':'MYKaylee',
                          '이자야키':'Izayaki',
@@ -44,5 +53,6 @@ class Database:
                          'SorryMaker':'Sleep',
                          'Freaks':'n1ghtg0d',
                          '태도':'Attitude',
-                         '폴라폴라포':'PolaPo'
+                         '폴라폴라포':'PolaPo',
+                         '에베베벱메롱메롱':'CH0R0NG'
                         }

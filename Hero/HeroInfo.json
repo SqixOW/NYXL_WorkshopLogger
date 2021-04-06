@@ -37,7 +37,7 @@
             "MaxRange": 23.98,
             "Duration": 2,
             "Cooldown": 4,
-            "MovementSpeed": 11.99
+            "MovementSpeed": 12.5
         },
         "Ability2":
         {
@@ -695,6 +695,252 @@
             "Duration": 4,
             "MovementSpeed": 11,
             "Cost": 1680
+        }
+    },
+    "Reaper":
+    {
+        "Name": "Reaper",
+        "MaxHP": 250,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Name": "The Reaping",
+            "LifeSteal": 40
+        },
+        "PrimaryFire":
+        {
+            "Type": "Shotgun Hitscan",
+            "Name": "Hellfire Shotguns",
+            "Ammo": 8,
+            "Reloading": 1.5,
+            "MaxDamage": 6,
+            "MinDamage": 2.1,
+            "MaxDamageRange": 11,
+            "MinDamageRange": 20,
+            "Pellets": 20,
+            "RPS": 2,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Self-Buff",
+            "Name": "Wraith Form",
+            "Duration": 3,
+            "MovementSpeed": 7.15,
+            "Cooldown": 8
+        },
+        "Ability2":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Shadow Step",
+            "Duration": 2,
+            "Range": 35,
+            "Cooldown": 10
+        },
+        "Ultimate":
+        {
+            "Type": "Channeled Ultimate AreaOfEffect Damaging",
+            "Name": "Death Blossom",
+            "Radius": 8,
+            "Duration": 3,
+            "MovementSpeed": 3,
+            "Cost": 2100
+        }
+    },
+    "McCree":
+    {
+        "Name": "McCree",
+        "MaxHP": 225,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "SingleShot Hitscan",
+            "Name": "Peacekeeper",
+            "Ammo": 6,
+            "Reloading": 1.2,
+            "MaxDamage": 70,
+            "MinDamage": 35,
+            "MaxDamageRange": 20,
+            "MinDamageRange": 45,
+            "RPS": 2,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "BurstFire Hitscan",
+            "Name": "Fan the Hammer",
+            "MaxDamage": 50,
+            "MinDamage": 27.5,
+            "MaxDamageRange": 18,
+            "MinDamageRange": 30,
+            "RPS": 9.1,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Combat Roll",
+            "Range": 7.2,
+            "MovementSpeed": 18,
+            "Duration": 0.5,
+            "Cooldown": 6
+        },
+        "Ability2":
+        {
+            "Type": "Stunning Arcing Splash Projectile",
+            "Name": "Flashbang",
+            "Duration": 0.8,
+            "Range": 5,
+            "Radius": 2,
+            "Damage": 25,
+            "CastingTime": 0.35,
+            "Cooldown": 10
+        },
+        "Ultimate":
+        {
+            "Type": "Channeled Ultimate Charged RapidFire Hitscan",
+            "Name": "Deadeye",
+            "Range": 200,
+            "Duration": 6.2,
+            "CastingTime": 0.2,
+            "MovementSpeed": 1.925,
+            "Damage": 170,
+            "DamageAdvanced": 550,
+            "Cost": 1680
+        }
+    },
+    "Mei":
+    {
+        "Name": "Mei",
+        "MaxHP": 250,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "Debuff Piercing Projectile Beam",
+            "Name": "Freeze Spray",
+            "Ammo": 120,
+            "Reloading": 1.5,
+            "Damage": 2.75,
+            "RPS": 20,
+            "ProjectileSpeed": 30,
+            "FrozenDuration": 1.5,
+            "MinSlowDuration": 0.5,
+            "MaxSlowDuration": 1,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Linear Projectile",
+            "Name": "Icicle",
+            "Damage": 75,
+            "RPS": 1.17,
+            "ProjectileSpeed": 120,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Self-Healing",
+            "Name": "Cryo-Freeze",
+            "Duration": 4,
+            "HealingAmount": 50,
+            "RoundRestore": 15,
+            "Cooldown": 12
+        },
+        "Ability2":
+        {
+            "Type": "Obstacle-Building",
+            "Name": "Ice Wall",
+            "Duration": 4.5,
+            "Range": 35,
+            "UnitHP": 400,
+            "Pillars": 5,
+            "Cooldown": 12
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Ultimate Arcing Splash Projectile",
+            "Name": "Blizzard",
+            "Radius": 10,
+            "Duration": 4.25,
+            "CastingTime": 0.2,
+            "Damage": 20,
+            "Cost": 1610
+        }
+    },
+    "Bastion":
+    {
+        "Name": "Bastion",
+        "MaxHP": 200,
+        "MaxArmor": 100,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Passive Self-Buff",
+            "Name": "Ironclad",
+            "DamageResistance": 20
+        },
+        "PrimaryFire":
+        {
+            "Type": "RapidFire Hitscan",
+            "Name": "Configuration: Recon",
+            "Ammo": 35,
+            "Reloading": 2,
+            "MaxDamage": 20,
+            "MinDamage": 10,
+            "MaxDamageRange": 26,
+            "MinDamageRange": 50,
+            "RPS": 8,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Self-Healing",
+            "Name": "Self-Repair",
+            "HealingAmount": 90,
+            "Duration": 4.3,
+            "Cooldown": 7,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "RapidFire Hitscan",
+            "Name": "Configuration: Sentry",
+            "Ammo": 300,
+            "Reloading": 2,
+            "MaxDamage": 15,
+            "MinDamage": 7.5,
+            "MaxDamageRange": 35,
+            "MinDamageRange": 55,
+            "RPS": 35,
+            "Critical": false,
+            "Cooldown": 12,
+            "MovementSpeed": 0
+        },
+        "Ultimate":
+        {
+            "Type": "Transformation Ultimate Linear Splash Projectile",
+            "Name": "Configuration: Tank",
+            "CastingTime": 1.5,
+            "Ammo": -1,
+            "Duration": 8,
+            "Damage": 205,
+            "MaxSplashDamage": 140,
+            "MinSplashDamage": 42,
+            "SelfSplashDamage": 35,
+            "Radius": 4,
+            "ProjectileSpeed": 60,
+            "RPS": 1,
+            "Critical": false,
+            "Cost": 2310
         }
     }
 }
