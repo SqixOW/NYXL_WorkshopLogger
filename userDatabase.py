@@ -54,5 +54,6 @@ class Database:
                          'Freaks':'n1ghtg0d',
                          '태도':'Attitude',
                          '폴라폴라포':'PolaPo',
-                         '에베베벱메롱메롱':'CH0R0NG'
+                         '에베베벱메롱메롱':'CH0R0NG',
+                         'YaHo2':'YaHo'
                         }

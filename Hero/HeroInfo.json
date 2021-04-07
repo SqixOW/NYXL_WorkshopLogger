@@ -942,6 +942,134 @@
             "Critical": false,
             "Cost": 2310
         }
+    },
+    "Soldier: 76":
+    {
+        "Name": "Soldier: 76",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "RapidFire Hitscan",
+            "Name": "Heavy Pulse Rifle",
+            "Ammo": 30,
+            "Reloading": 1.5,
+            "MaxDamage": 19,
+            "MinDamage": 9.5,
+            "MaxDamageRange": 30,
+            "MinDamageRange": 50,
+            "RPS": 8.66,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Linear Splash Projectile",
+            "Name": "Helix Rockets",
+            "Damage": 120,
+            "MaxSplashDamage": 80,
+            "MinSplashDamage": 40,
+            "MaxSelfSplashDamage": 40,
+            "MinSelfSplashDamage": 20, 
+            "ProjectileSpeed": 50,
+            "Cooldown": 6
+        },
+        "Ability1":
+        {
+            "Type": "Non-Damaging Movement",
+            "Name": "Sprint",
+            "MovementSpeed": 8.25,
+            "Cooldown": 0
+        },
+        "Ability2":
+        {
+            "Type": "Area Healing",
+            "Name": "Biotic Field",
+            "HealingAmount": 40,
+            "Radius": 5,
+            "Duration": 5,
+            "Cooldown": 15
+        },
+        "Ultimate":
+        {
+            "Type": "Transformation Ultimate Self-Buff",
+            "Name": "Tactical Visor",
+            "CastingTime": 1.25,
+            "Duration": 6,
+            "Reloading": 0.75,
+            "Range": 45,
+            "Critical": false,
+            "Cost": 2310
+        }
+    },
+    "Sombra":
+    {
+        
+        "Name": "Sombra",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Self-Buff",
+            "Name": "Opportunist",
+            "HealthRatio": 50
+        },
+        "PrimaryFire":
+        {
+            "Type": "RapidFire Hitscan",
+            "Name": "Machine Pistol",
+            "Ammo": 60,
+            "Reloading": 1.5,
+            "MaxDamage": 8,
+            "MinDamage": 2.4,
+            "MaxDamageRange": 15,
+            "MinDamageRange": 25,
+            "RPS": 20,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Enemy-targetting Debuff Hitscan",
+            "Name": "Hacking",
+            "HeroDuration": 5,
+            "HealthPackDuration": 60,
+            "UnitDuration": 10,
+            "Range": 15,
+            "Cooldown": 8,
+            "Delay": 2
+        },
+        "Ability1":
+        {
+            "Type": "Non-Damaging Self-Buff Movement",
+            "Name": "Stealth",
+            "MovementSpeed": 8.25,
+            "Radius": 2,
+            "CastingTime": 0.7,
+            "Cooldown": 6
+        },
+        "Ability2":
+        {
+            "Type": "Projectile-based Movement",
+            "Name": "Translocator",
+            "UnitHP": 5,
+            "Beacon": 1,
+            "ProjectileSpeed": 25,
+            "CastingTime": 0.7,
+            "Cooldown": 6
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Ultimate Area Debuff",
+            "Name": "EMP",
+            "CastingTime": 0.35,
+            "Duration": 5,
+            "Radius": 15,
+            "BarrierDamage": 10000,
+            "Cost": 1400
+        }
     }
 }
 
