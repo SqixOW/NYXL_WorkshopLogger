@@ -7,7 +7,7 @@
         "MaxShield": 0,
         "PrimaryFire":
         {
-            "Type": "BasicAttack Hitscan Shotgun",
+            "Type": "Hitscan Shotgun",
             "Name": "Fusion Cannons",
             "Ammo": -1,
             "MaxDamageRange": 10,
@@ -67,7 +67,7 @@
                 "MaxShield": 0,
                 "PrimaryFire":
                 {
-                    "Type": "BasicAttack Projectile",
+                    "Type": "Projectile",
                     "Name": "Light Gun",
                     "Ammo": 20,
                     "Damage": 14,
@@ -113,7 +113,7 @@
         },
         "PrimaryFire":
         {
-            "Type": "BasicAttack Melee",
+            "Type": "Melee",
             "Name": "Rocket Hammer",
             "Ammo": -1,
             "Range": 5,
@@ -172,7 +172,7 @@
         "MaxShield": 0,
         "Primary Fire":
         {
-            "Type": "BasicAttack RapidFire Hitscan",
+            "Type": "RapidFire Hitscan",
             "Name": "Quad Cannons",
             "Ammo": 80,
             "MaxDamageRange": 15,
@@ -246,7 +246,7 @@
         "MaxShield": 0,
         "Primary Fire":
         {
-            "Type": "BasicAttack Shotgun Projectile",
+            "Type": "Shotgun Projectile",
             "Name": "Shrapnel Blast",
             "Ammo": 5,
             "MaxDamage": 6,
@@ -262,7 +262,7 @@
         },
         "Secondary Fire":
         {
-            "Type": "BasicAttack Linear/Shotgun Projectile",
+            "Type": "Linear/Shotgun Projectile",
             "Name": "Shrapnel Ball",
             "Ammo": 5,
             "Damage": 50,
@@ -450,7 +450,7 @@
         "MaxShield": 0,
         "PrimaryFire":
         {
-            "Type": "FrontalAreaOfEffect Beam",
+            "Type": "Frontal AreaOfEffect Beam",
             "Name": "Tesla Cannon",
             "Ammo": 100,
             "Reloading": 1.5,
@@ -725,7 +725,7 @@
         },
         "Ability1":
         {
-            "Type": "Non-damaging Self-Buff",
+            "Type": "Non-damaging Self-buff",
             "Name": "Wraith Form",
             "Duration": 3,
             "MovementSpeed": 7.15,
@@ -883,7 +883,7 @@
         "MaxShield": 0,
         "Passive":
         {
-            "Type": "Passive Self-Buff",
+            "Type": "Passive Self-buff",
             "Name": "Ironclad",
             "DamageResistance": 20
         },
@@ -977,7 +977,7 @@
         },
         "Ability1":
         {
-            "Type": "Non-Damaging Movement",
+            "Type": "Non-damaging Movement",
             "Name": "Sprint",
             "MovementSpeed": 8.25,
             "Cooldown": 0
@@ -993,7 +993,7 @@
         },
         "Ultimate":
         {
-            "Type": "Transformation Ultimate Self-Buff",
+            "Type": "Transformation Ultimate Self-buff",
             "Name": "Tactical Visor",
             "CastingTime": 1.25,
             "Duration": 6,
@@ -1005,14 +1005,13 @@
     },
     "Sombra":
     {
-        
         "Name": "Sombra",
         "MaxHP": 200,
         "MaxArmor": 0,
         "MaxShield": 0,
         "Passive":
         {
-            "Type": "Self-Buff",
+            "Type": "Self-buff",
             "Name": "Opportunist",
             "HealthRatio": 50
         },
@@ -1043,7 +1042,7 @@
         },
         "Ability1":
         {
-            "Type": "Non-Damaging Self-Buff Movement",
+            "Type": "Non-damaging Self-buff Movement",
             "Name": "Stealth",
             "MovementSpeed": 8.25,
             "Radius": 2,
@@ -1069,6 +1068,427 @@
             "Radius": 15,
             "BarrierDamage": 10000,
             "Cost": 1400
+        }
+    },
+    "Symmetra":
+    {
+        "Name": "Symmetra",
+        "MaxHP": 100,
+        "MaxArmor": 0,
+        "MaxShield": 125,
+        "PrimaryFire":
+        {
+            "Type": "Beam",
+            "Name": "Photon Projector",
+            "Ammo": 70,
+            "Reloading": 1.35,
+            "Damage1": 60,
+            "Damage2": 120,
+            "Damage3": 180,
+            "Range": 12,
+            "RPS": 7,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Projectile",
+            "Name": "Photon Projector",
+            "MinDamage": 30,
+            "MaxDamage": 120,
+            "MinSplashDamage": 15,
+            "MaxSplashDamage": 60,
+            "Radius": 2,
+            "ProjectileSpeed": 25,
+            "Charge": 1,
+            "Critical": false,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Beam",
+            "Name": "Sentry Turret",
+            "UnitHP": 30,
+            "MovementSpeed": 4.4,
+            "Damage": 40,
+            "ProjectileSpeed": 15,
+            "CastingTime": 0.5,
+            "Ammo": 3,
+            "Range": 10,
+            "Cooldown": 10,
+            "Critical": false
+        },
+        "Ability2":
+        {
+            "Type": "Movement",
+            "Name": "Teleporter",
+            "UnitHP": 50,
+            "UnitShields": 250,
+            "PlacementRange": 30,
+            "Range": 40,
+            "CastingTime": 2,
+            "Cooldown": 10,
+            "Duration": -1
+        },
+        "Ultimate":
+        {
+            "Type": "Barrier Ultimate",
+            "Name": "Photon Barrier",
+            "CastingTime": 0.5,
+            "Duration": 12,
+            "Range": 25,
+            "BarrierHP": 4000,
+            "Cost": 1680
+        }
+    },
+    "Ashe":
+    {
+        "Name": "Ashe",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "SingleShot Hitscan",
+            "Name": "The Viper",
+            "Ammo": 12,
+            "Reloading": 0.5,
+            "MinDamage": 20,
+            "MaxDamage": 40,
+            "MinDamageRange": 40,
+            "MaxDamageRange": 20,
+            "RPS": 4,
+            "SpreadAngle": 1.85,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "SingleShot Hitscan",
+            "Name": "The Viper",
+            "MinDamage": 37.5,
+            "MaxDamage": 75,
+            "MinDamageRange": 50,
+            "MaxDamageRange": 30,
+            "Radius": 2,
+            "RPS": 1.54,
+            "SpreadAngle": 0,
+            "Critical": true,
+            "MovementSpeed": 4.125
+        },
+        "Ability1":
+        {
+            "Type": "Shotgun Hitscan Movement Knockback",
+            "Name": "Coach Gun",
+            "Damage": 6,
+            "Pellets": 15,
+            "CastingTime": 0.5,
+            "Range": 9.4,
+            "Cooldown": 10,
+            "Critical": false
+        },
+        "Ability2":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Dynamite",
+            "BurningDamage": 100,
+            "MinDamage": 20,
+            "MaxDamage": 50,
+            "ProjectileSpeed": 25,
+            "Radius": 5,
+            "CastingTime": 2,
+            "Cooldown": 12,
+            "Duration": 5
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Hitscan",
+            "Name": "B.O.B",
+            "UnitHP": 1200,
+            "Duration": 10,
+            "ChargeDamage": 120,
+            "Damage": 14,
+            "RPS": 8,
+            "MovementSpeed": 15,
+            "Range": 40,
+            "Cost": 2240
+        }
+    },
+    "Echo":
+    {
+        "Name": "Echo",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Glide",
+            "HorizontalMovementSpeed": 8.25,
+            "VerticalMovementSpeed": 4
+        },
+        "PrimaryFire":
+        {
+            "Type": "Shotgun Projectile",
+            "Name": "Tri-Shot",
+            "Ammo": 12,
+            "Damage": 17,
+            "Pellets": 3,
+            "Reloading": 1.5,
+            "RPS": 3,
+            "Critical": true,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "Projectile Splash",
+            "Name": "Sticky Bombs",
+            "ImpactDamage": 5,
+            "SplashDamage": 25,
+            "SelfSplashDamage": 12.5,
+            "Pellets": 6,
+            "Radius": 2,
+            "Critical": false,
+            "Cooldown": 6
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Flight",
+            "MovementSpeed": 8,
+            "Cooldown": 6,
+            "Duration": 3
+        },
+        "Ability2":
+        {
+            "Type": "Beam",
+            "Name": "Focusing Beam",
+            "MinDamage": 50,
+            "MaxDamage": 200,
+            "Duration": 2,
+            "Range": 16,
+            "Cooldown": 8,
+            "Critical": false
+        },
+        "Ultimate":
+        {
+            "Type": "Transform Ultimage",
+            "Name": "Duplicate",
+            "Duration": 15,
+            "Range": 40,
+            "CastingTime": 0.35,
+            "Cost": 1960
+        }
+    },
+    "Widowmaker":
+    {
+        "Name": "Widowmaker",
+        "MaxHP": 175,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "RapidFire Hitscan",
+            "Name": "Widow's Kiss",
+            "Ammo": 35,
+            "MinDamage": 6.5,
+            "MaxDamage": 13,
+            "MinDamageRange": 40,
+            "MaxDamageRange": 20,
+            "SpreadAngle": 3,
+            "RPS": 10,
+            "Critical": true,
+            "Reloading": 1.5,
+            "MovementSpeed": 5.5
+        },
+        "SecondaryFire":
+        {
+            "Type": "SingleShot Hitscan",
+            "Name": "Widow's Kiss",
+            "MinDamage": 12,
+            "MaxDamage": 120,
+            "Charge": 0.9,
+            "AmmoConsume": 5,
+            "Critical": true,
+            "CriticalMultiplier": 2.5,
+            "MovementSpeed": 1.925
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Grappling Hook",
+            "MovementSpeed": 20,
+            "Cooldown": 12,
+            "Range": 20
+        },
+        "Ability2":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Venom Mine",
+            "UnitHP": 1,
+            "Damage": 15,
+            "Duration": 5,
+            "ProjectileSpeed": 20,
+            "Radius": 3,
+            "Cooldown": 15
+        },
+        "Ultimate":
+        {
+            "Type": "Cast Team-Buff Ultimage",
+            "Name": "Infra-Sight",
+            "CastingTime": 0.5,
+            "Duration": 15,
+            "Cost": 1540
+        }
+    },
+    "Junkrat":
+    {
+        "Name": "Junkrat",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Projectile",
+            "Name": "Total Mayhem",
+            "Damage": 50,
+            "Pellets": 6,
+            "CastingTime": 0.7,
+            "Critical": false
+        },
+        "PrimaryFire":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Frag Launcher",
+            "Ammo": 5,
+            "Damage": 120,
+            "MinSplashDamage": 10,
+            "MaxSplashDamage": 80,
+            "Radius": 2,
+            "ProjectileSpeed": 25,
+            "RPS": 1.5,
+            "Critical": false,
+            "Reloading": 1.5,
+            "MovementSpeed": 5.5
+        },
+        "Ability1":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Concussion Mine",
+            "CastingTime": 0.1,
+            "ProjectileSpeed": 25,
+            "UnitHP": 25,
+            "Ammo": 2,
+            "MinDamage": 30,
+            "MaxDamage": 120,
+            "Cooldown": 8,
+            "Range": 20,
+            "Critical": false
+        },
+        "Ability2":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Steel Trap",
+            "UnitHP": 100,
+            "Damage": 80,
+            "StunDuration": 1,
+            "RootDuration": 3,
+            "ProjectileSpeed": 10,
+            "Cooldown": 10
+        },
+        "Ultimate":
+        {
+            "Type": "Channel AreaOfEffect Damaging Ultimate",
+            "Name": "RIP-Tire",
+            "MinSplashDamage": 50,
+            "MaxSplashDamage": 600,
+            "MovementSpeed": 12,
+            "Radius": 10,
+            "CastingTime": 1,
+            "Duration": 10,
+            "Critical": false,
+            "Cost": 1925
+        }
+    },
+    "Torbjorn":
+    {
+        "Name": "Torbjorn",
+        "MaxHP": 200,
+        "MaxArmor": 50,
+        "MaxShield": 0,
+        "Weapon2":
+        {
+            "Type": "Melee",
+            "Name": "Forge Hammer",
+            "Damage": 50,
+            "Range": 2.5,
+            "RPS": 1.2,
+            "CastingTime": 0.35,
+            "Critical": false
+        },
+        "PrimaryFire":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Rivet Gun",
+            "Damage": 70,
+            "ProjectileSpeed": 70,
+            "Ammo": 18,
+            "Reloading": 2,
+            "RPS": 1.67,
+            "Critical": true
+        },
+        "SecondaryFire":
+        {
+            "Type": "Arcing Projectile Shotgun",
+            "Name": "Rivet Gun",
+            "MinDamage": 3.75,
+            "MaxDamage": 12.5,
+            "MinDamageRange": 20,
+            "MaxDamageRange": 10,
+            "SpeadAngle": 4.15,
+            "ProjectileSpeed": 120,
+            "Pellets": 10,
+            "RPS": 1.25,
+            "AmmoConsume": 3,
+            "Critical": true
+        },
+        "Ability1":
+        {
+            "Type": "Arcing Projectile Hitscan",
+            "Name": "Deploy Turret",
+            "UnitHP": 250,
+            "Damage": 14,
+            "ProjectileSpeed": 17,
+            "Range": 40,
+            "Ammo": -1,
+            "RPS": 4,
+            "Cooldown": 5,
+            "CastingTime": 3,
+            "Critical": false
+        },
+        "Ability2":
+        {
+            "Type": "Self-buff",
+            "Name": "Overload",
+            "Armor": 100,
+            "MovementSpeed": 7.15,
+            "RPSIncreaseRate": 30,
+            "Duration": 5,
+            "Cooldown": 10
+        },
+        "Ultimate":
+        {
+            "Type": "AreaOfEffect, Arcing Projectile",
+            "Name": "Molten Core",
+            "Damage": 160,
+            "ArmorDamage": 250,
+            "CastingTime": 0.5,
+            "Radius": 2.5,
+            "Duration": 10,
+            "Ammo": 10,
+            "RPS": 7.3,
+            "Critical": false,
+            "Cost": 2142
         }
     }
 }
