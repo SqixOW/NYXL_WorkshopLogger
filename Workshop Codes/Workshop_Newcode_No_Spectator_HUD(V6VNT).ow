@@ -17,26 +17,6 @@ subroutines
 	1: LogHybridInfo
 }
 
-rule("Remove Assembling Heroes")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Is Assembling Heroes == True;
-	}
-
-	actions
-	{
-		Set Match Time(0);
-		Wait(5, Ignore Condition);
-		Set Match Time(50);
-	}
-}
-
 rule("First attack done")
 {
 	event
@@ -222,12 +202,6 @@ rule("Global Logging - Subroutine 2")
 			"time, team 1 attacking (else is team 2), point capture percentage"
 			Log To Inspector(Custom String("{0},{1},{2}", Total Time Elapsed, Is Team On Offense(Team 1), Point Capture Percentage));
 	}
-}
-
-variables
-{
-	global:
-		12: MapInfoLogged
 }
 
 rule("Player Logging - Ongoing")

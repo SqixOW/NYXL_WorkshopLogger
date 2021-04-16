@@ -15,7 +15,7 @@
             "MaxDamage": 2,
             "MinDamage": 0.6,
             "Pellets": 11,
-            "RPS": 6.67,
+            "RateOfFire": 6.67,
             "Critical": true,
             "MovementSpeed": 2.75
         },
@@ -46,7 +46,7 @@
             "MinDamage": 2,
             "MaxSplash": 4,
             "MinSplash": 1,
-            "RPS": 11,
+            "RateOfFire": 11,
             "ProjectileSpeed": 40,
             "Radius": 1.5,
             "CastingTime": 0.25,
@@ -72,7 +72,7 @@
                     "Ammo": 20,
                     "Damage": 14,
                     "Pellets": 1,
-                    "RPS": 7,
+                    "RateOfFire": 7,
                     "ProjectileSpeed": 50,
                     "Critical": true,
                     "MovementSpeed": 5.5
@@ -118,7 +118,7 @@
             "Ammo": -1,
             "Range": 5,
             "Damage": 85,
-            "RPS": 1.15,
+            "RateOfFire": 1.15,
             "Critical": false,
             "MovementSpeed": 5.5
         },
@@ -180,7 +180,7 @@
             "MaxDamage": 5,
             "MinDamage": 2.5,
             "Pellets": 1,
-            "RPS": 25,
+            "RateOfFire": 25,
             "Critical": true,
             "MovementSpeed": 5.5,
             "Reloading": 2
@@ -254,7 +254,7 @@
             "MaxDamageRange": 15,
             "MinDamageRange": 30,
             "Pellets": 25,
-            "RPS": 1.1,
+            "RateOfFire": 1.1,
             "ProjectileSpeed": 80,
             "Critical": true,
             "MovementSpeed": 5.5,
@@ -272,7 +272,7 @@
             "MaxDamageRange": 24,
             "MinDamageRange": 39,
             "Pellets": 25,
-            "RPS": 1.1,
+            "RateOfFire": 1.1,
             "ProjectileSpeed": 80,
             "Critical": true,
             "MovementSpeed": 5.5,
@@ -303,7 +303,7 @@
             "Name": "Whole Hog",
             "Damage": 9.125,
             "Pellets": 12,
-            "RPS": 7.5,
+            "RateOfFire": 7.5,
             "MovementSpeed": 2.5,
             "CastingTime": 0.5,
             "Duration": 6,
@@ -328,7 +328,7 @@
             "MinSplashDamage": 9,
             "MaxSplashSelfDamage": 2.625,
             "MinSplashSelfDamage": 8.75,
-            "RPS": 1.33,
+            "RateOfFire": 1.33,
             "Critical": false,
             "MovementSpeed": 5.5
         },
@@ -396,7 +396,7 @@
             "Ammo": 150,
             "Reloading": 2.66,
             "Damage": 11,
-            "RPS": 12.5,
+            "RateOfFire": 12.5,
             "Critical": true,
             "ProjectileSpeed": 120,
             "MovementSpeed": 2.75
@@ -455,7 +455,7 @@
             "Ammo": 100,
             "Reloading": 1.5,
             "Damage": 3,
-            "RPS": 20,
+            "RateOfFire": 20,
             "Critical": false,
             "MovementSpeed": 5.5
         },
@@ -484,7 +484,7 @@
             "Name": "Primal Rage",
             "MaxHP": 850,
             "MaxArmor": 150,
-            "RPS": 1.55,
+            "RateOfFire": 1.55,
             "Range": 4,
             "Duration": 10,
             "Damage": 40,
@@ -515,7 +515,7 @@
             "Reloading": 1.5,
             "MinDamage": 95,
             "MaxDamage": 170,
-            "RPS": 25,
+            "RateOfFire": 25,
             "Critical": false,
             "Range": 15,
             "MovementSpeed": 5.5
@@ -529,7 +529,7 @@
             "MaxDamage": 95,
             "ProjectileSpeed": 25,
             "MovementSpeed": 5.5,
-            "RPS": 1,
+            "RateOfFire": 1,
             "AmmoConsume": 25,
             "Critical": false
         },
@@ -577,7 +577,7 @@
             "Ammo": 30,
             "Reloading": 1,
             "Damage": 28,
-            "RPS": 3,
+            "RateOfFire": 3,
             "Critical": true,
             "ProjectileSpeed": 60,
             "MovementSpeed": 6
@@ -587,7 +587,7 @@
             "Type": "Shotgun Linear Projectile",
             "Name": "Fan of Blades",
             "Damage": 28,
-            "RPS": 4.41,
+            "RateOfFire": 4.41,
             "Critical": true,
             "ProjectileSpeed": 60,
             "MovementSpeed": 6
@@ -615,7 +615,7 @@
             "Damage": 120,
             "Duration": 6,
             "Range": 5,
-            "RPS": 1.17,
+            "RateOfFire": 1.17,
             "MovementSpeed": 8,
             "Critical": false,
             "Cost": 1680
@@ -645,7 +645,7 @@
             "MinDamage": 1.8,
             "MaxDamageRange": 15,
             "Pellets": 11,
-            "RPS": 3.3,
+            "RateOfFire": 3.3,
             "Critical": true,
             "ProjectileSpeed": 80,
             "MovementSpeed": 5.5
@@ -719,7 +719,7 @@
             "MaxDamageRange": 11,
             "MinDamageRange": 20,
             "Pellets": 20,
-            "RPS": 2,
+            "RateOfFire": 2,
             "Critical": true,
             "MovementSpeed": 5.5
         },
@@ -765,7 +765,7 @@
             "MinDamage": 35,
             "MaxDamageRange": 20,
             "MinDamageRange": 45,
-            "RPS": 2,
+            "RateOfFire": 2,
             "Critical": true,
             "MovementSpeed": 5.5
         },
@@ -777,7 +777,7 @@
             "MinDamage": 27.5,
             "MaxDamageRange": 18,
             "MinDamageRange": 30,
-            "RPS": 9.1,
+            "RateOfFire": 9.1,
             "Critical": false,
             "MovementSpeed": 5.5
         },
@@ -827,7 +827,7 @@
             "Ammo": 120,
             "Reloading": 1.5,
             "Damage": 2.75,
-            "RPS": 20,
+            "RateOfFire": 20,
             "ProjectileSpeed": 30,
             "FrozenDuration": 1.5,
             "MinSlowDuration": 0.5,
@@ -840,14 +840,14 @@
             "Type": "Linear Projectile",
             "Name": "Icicle",
             "Damage": 75,
-            "RPS": 1.17,
+            "RateOfFire": 1.17,
             "ProjectileSpeed": 120,
             "Critical": true,
             "MovementSpeed": 5.5
         },
         "Ability1":
         {
-            "Type": "Self-Healing",
+            "Type": "Self-healing",
             "Name": "Cryo-Freeze",
             "Duration": 4,
             "HealingAmount": 50,
@@ -897,13 +897,13 @@
             "MinDamage": 10,
             "MaxDamageRange": 26,
             "MinDamageRange": 50,
-            "RPS": 8,
+            "RateOfFire": 8,
             "Critical": true,
             "MovementSpeed": 5.5
         },
         "SecondaryFire":
         {
-            "Type": "Self-Healing",
+            "Type": "Self-healing",
             "Name": "Self-Repair",
             "HealingAmount": 90,
             "Duration": 4.3,
@@ -920,7 +920,7 @@
             "MinDamage": 7.5,
             "MaxDamageRange": 35,
             "MinDamageRange": 55,
-            "RPS": 35,
+            "RateOfFire": 35,
             "Critical": false,
             "Cooldown": 12,
             "MovementSpeed": 0
@@ -938,7 +938,7 @@
             "SelfSplashDamage": 35,
             "Radius": 4,
             "ProjectileSpeed": 60,
-            "RPS": 1,
+            "RateOfFire": 1,
             "Critical": false,
             "Cost": 2310
         }
@@ -959,7 +959,7 @@
             "MinDamage": 9.5,
             "MaxDamageRange": 30,
             "MinDamageRange": 50,
-            "RPS": 8.66,
+            "RateOfFire": 8.66,
             "Critical": true,
             "MovementSpeed": 5.5
         },
@@ -1025,7 +1025,7 @@
             "MinDamage": 2.4,
             "MaxDamageRange": 15,
             "MinDamageRange": 25,
-            "RPS": 20,
+            "RateOfFire": 20,
             "Critical": true,
             "MovementSpeed": 5.5
         },
@@ -1086,7 +1086,7 @@
             "Damage2": 120,
             "Damage3": 180,
             "Range": 12,
-            "RPS": 7,
+            "RateOfFire": 7,
             "Critical": false,
             "MovementSpeed": 5.5
         },
@@ -1157,7 +1157,7 @@
             "MaxDamage": 40,
             "MinDamageRange": 40,
             "MaxDamageRange": 20,
-            "RPS": 4,
+            "RateOfFire": 4,
             "SpreadAngle": 1.85,
             "Critical": true,
             "MovementSpeed": 5.5
@@ -1171,7 +1171,7 @@
             "MinDamageRange": 50,
             "MaxDamageRange": 30,
             "Radius": 2,
-            "RPS": 1.54,
+            "RateOfFire": 1.54,
             "SpreadAngle": 0,
             "Critical": true,
             "MovementSpeed": 4.125
@@ -1208,7 +1208,7 @@
             "Duration": 10,
             "ChargeDamage": 120,
             "Damage": 14,
-            "RPS": 8,
+            "RateOfFire": 8,
             "MovementSpeed": 15,
             "Range": 40,
             "Cost": 2240
@@ -1235,7 +1235,7 @@
             "Damage": 17,
             "Pellets": 3,
             "Reloading": 1.5,
-            "RPS": 3,
+            "RateOfFire": 3,
             "Critical": true,
             "MovementSpeed": 5.5
         },
@@ -1296,7 +1296,7 @@
             "MinDamageRange": 40,
             "MaxDamageRange": 20,
             "SpreadAngle": 3,
-            "RPS": 10,
+            "RateOfFire": 10,
             "Critical": true,
             "Reloading": 1.5,
             "MovementSpeed": 5.5
@@ -1366,7 +1366,7 @@
             "MaxSplashDamage": 80,
             "Radius": 2,
             "ProjectileSpeed": 25,
-            "RPS": 1.5,
+            "RateOfFire": 1.5,
             "Critical": false,
             "Reloading": 1.5,
             "MovementSpeed": 5.5
@@ -1412,6 +1412,7 @@
     },
     "Torbjorn":
     {
+        "Role": "Damage",
         "Name": "Torbjorn",
         "MaxHP": 200,
         "MaxArmor": 50,
@@ -1422,20 +1423,21 @@
             "Name": "Forge Hammer",
             "Damage": 50,
             "Range": 2.5,
-            "RPS": 1.2,
+            "RateOfFire": 1.2,
             "CastingTime": 0.35,
             "Critical": false
         },
         "PrimaryFire":
         {
-            "Type": "Arcing Projectile",
+            "Type": "SingleShot Arcing Projectile",
             "Name": "Rivet Gun",
             "Damage": 70,
             "ProjectileSpeed": 70,
             "Ammo": 18,
             "Reloading": 2,
-            "RPS": 1.67,
-            "Critical": true
+            "RateOfFire": 1.67,
+            "Critical": true,
+            "MovementSpeed": 5.5
         },
         "SecondaryFire":
         {
@@ -1448,7 +1450,7 @@
             "SpeadAngle": 4.15,
             "ProjectileSpeed": 120,
             "Pellets": 10,
-            "RPS": 1.25,
+            "RateOfFire": 1.25,
             "AmmoConsume": 3,
             "Critical": true
         },
@@ -1461,7 +1463,7 @@
             "ProjectileSpeed": 17,
             "Range": 40,
             "Ammo": -1,
-            "RPS": 4,
+            "RateOfFire": 4,
             "Cooldown": 5,
             "CastingTime": 3,
             "Critical": false
@@ -1472,13 +1474,13 @@
             "Name": "Overload",
             "Armor": 100,
             "MovementSpeed": 7.15,
-            "RPSIncreaseRate": 30,
+            "RateOfFireIncreaseRate": 30,
             "Duration": 5,
             "Cooldown": 10
         },
         "Ultimate":
         {
-            "Type": "AreaOfEffect, Arcing Projectile",
+            "Type": "AreaOfEffect Arcing Projectile Ultimate",
             "Name": "Molten Core",
             "Damage": 160,
             "ArmorDamage": 250,
@@ -1486,9 +1488,390 @@
             "Radius": 2.5,
             "Duration": 10,
             "Ammo": 10,
-            "RPS": 7.3,
+            "RateOfFire": 7.3,
             "Critical": false,
             "Cost": 2142
+        }
+    },
+    "Tracer":
+    {
+        "Role": "Damage",
+        "Name": "Tracer",
+        "MaxHP": 150,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "RapidFire Hitscan",
+            "Name": "Pulse Pistols",
+            "Ammo": 40,
+            "MinDamage": 1.8,
+            "MaxDamage": 6,
+            "MinDamageRange": 20,
+            "MaxDamageRange": 12,
+            "SpreadAngle": 3.6,
+            "RateOfFire": 20,
+            "Reloading": 1.15,
+            "Critical": true,
+            "MovementSpeed": 6
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Blink",
+            "Range": 7.5,
+            "Ammo": 3,
+            "Duration": 0.1,
+            "Cooldown": 3
+        },
+        "Ability2":
+        {
+            "Type": "Movement Self-healing",
+            "Name": "Recall",
+            "Rewind": 3,
+            "Duration": 1.25,
+            "Cooldown": 12
+        },
+        "Ultimate":
+        {
+            "Type": "AreaOfEffect Arcing Projectile Ultimate",
+            "Name": "Pulse Bomb",
+            "MinDamage": 70,
+            "MaxDamage": 350,
+            "CastingTime": 0.15,
+            "Radius": 5,
+            "Critical": false,
+            "Cost": 1260
+        }
+    },
+    "Pharah":
+    {
+        "Role": "Damage",
+        "Name": "Pharah",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Hover Jets",
+            "VerticalMovementSpeed": 4.27,
+            "Duration": 2,
+            "Recharge": 2.33
+        },
+        "PrimaryFire":
+        {
+            "Type": "SingleShot Projectile",
+            "Name": "Rocket Launcher",
+            "Ammo": 6,
+            "Damage": 120,
+            "MinSplashDamage": 24.6,
+            "MaxSplashDamage": 80,
+            "Radius": 2.5,
+            "RateOfFire": 1.17,
+            "ProjectileSpeed": 35,
+            "Reloading": 1.5,
+            "Critical": false
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Jump Jet",
+            "Range": 11.55,
+            "Cooldown": 10
+        },
+        "Ability2":
+        {
+            "Type": "Knockback Projectile",
+            "Name": "Concussive Blast",
+            "ProjectileSpeed": 60,
+            "Cooldown": 9,
+            "Damage": 0
+        },
+        "Ultimate":
+        {
+            "Type": "Channeled Projectile Ultimate",
+            "Name": "Barrage",
+            "Damage": 40,
+            "MinSplashDamage": 9,
+            "MaxSplashDamage": 30,
+            "Duration": 2.5,
+            "Radius": 2,
+            "RateOfFire": 30,
+            "Critical": false,
+            "Cost": 2100
+        }
+    },
+    "Hanzo":
+    {
+        "Role": "Damage",
+        "Name": "Hanzo",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Wall Climb",
+            "VerticalMovementSpeed": 7.15,
+            "Range": 4
+        },
+        "PrimaryFire":
+        {
+            "Type": "BurstFire Projectile",
+            "Name": "Storm Bow",
+            "Ammo": -1,
+            "MinDamage": 27.2,
+            "MaxDamage": 125,
+            "Charge": 0.75,
+            "RateOfFire": 1.33,
+            "MinProjectileSpeed": 25,
+            "MaxProjectileSpeed": 110,
+            "Recovery": 0.5,
+            "Critical": true
+        },
+        "Ability1":
+        {
+            "Type": "Team-buff Arcing Projectile",
+            "Name": "Sonic Arrow",
+            "Radius": 9,
+            "Duration": 6,
+            "Cooldown": 12
+        },
+        "Ability2":
+        {
+            "Type": "Arcing Projectile",
+            "Name": "Storm Arrows",
+            "ProjectileSpeed": 110,
+            "Cooldown": 10,
+            "Damage": 70,
+            "RateOfFire": 4,
+            "Ammo": 5,
+            "Duration": 5,
+            "Critical": true
+        },
+        "DoubleJump":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Lunge",
+            "MovementSpeed": 15,
+            "Range": 7.85,
+            "Cooldown": 5
+        },
+        "Ultimate":
+        {
+            "Type": "Channeled Projectile AreaOfEffect Ultimate",
+            "Name": "Dragonstrike",
+            "ArrowDamage": 125,
+            "DragonDamage": 285,
+            "Radius": 4,
+            "Range": -1,
+            "CastingTime": 0.9,
+            "Cost": 1680
+        }
+    },
+    "Lucio":
+    {
+        "Role": "Support",
+        "Name": "Lucio",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Wall Ride",
+            "MovementSpeedBuff": 30
+        },
+        "PrimaryFire":
+        {
+            "Type": "BurstFire Projectile",
+            "Name": "Sonic Amplifier",
+            "Ammo": 20,
+            "Burst": 4,
+            "Damage": 20,
+            "Reloading": 1.5,
+            "SpreadAngle": 0,
+            "RateOfFire": 1.06,
+            "ProjectileSpeed": 50,
+            "Critical": true
+        },
+        "SecondaryFire":
+        {
+            "Type": "Knockback AreaOfEffect",
+            "Name": "Soundwave",
+            "Damage": 25,
+            "MaxRange": 8,
+            "Cooldown": 4,
+            "Critical": false
+        },
+        "Ability1":
+        { 
+            "Type": "Team-buff AreaOfEffect",
+            "Name": "Crossfade",
+            "Radius": 12,
+            "Healing": 16.25,
+            "SelfHealing": 13,
+            "MovementSpeedBuff": 25,
+            "CastingTime": 0.8
+        },
+        "Ability2":
+        {
+            "Type": "AreaOfEffect",
+            "Name": "Amp It Up",
+            "Healing": 46.8,
+            "MovementSpeedBuff": 60,
+            "Duration": 3,
+            "Cooldown": 12
+        },
+        "Ultimate":
+        {
+            "Type": "AreaOfEffect Ultimate",
+            "Name": "Sound Barrier",
+            "TemporaryShield": 750,
+            "Radius": 30,
+            "Duration": 7,
+            "CastingTime": 0.72,
+            "Cost": 2940
+        }
+    },
+    "Mercy":
+    {
+        "Role": "Support",
+        "Name": "Mercy",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "Passive1":
+        {
+            "Type": "Self-healing",
+            "Name": "Regeneration",
+            "SelfHealing": 20
+        },
+        "Passive2":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Angelic Descent",
+            "VerticalMovementSpeed": 2,
+            "Duration": -1
+        },
+        "Weapon2":
+        {
+            "Type": "SingleShot Projectile",
+            "Name": "Caduceus Blaster",
+            "Ammo": 20,
+            "RateOfFire": 5,
+            "Reloading": 1.4,
+            "Critical": true,
+            "ProjectileSpeed": 50,
+            "SpreadAngle": 0
+        },
+        "PrimaryFire":
+        {
+            "Type": "Team-buff Healing Targeted",
+            "Name": "Caduceus Staff",
+            "Healing": 55,
+            "DamageAmplify": 30,
+            "Range": 15
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Guardian Angel",
+            "MovementSpeed": 17,
+            "Range": 30,
+            "Cooldown": 1.5
+        },
+        "Ability2":
+        {
+            "Type": "Cast Targeted",
+            "Name": "Resurrect",
+            "MovementSpeedBuff": -75,
+            "Range": 5,
+            "CastingTime": 1.75,
+            "Cooldown": 30,
+            "Invulnerability": 2.25,
+            "UltChargeGain": 0
+        },
+        "Ultimate":
+        {
+            "Type": "Self-buff Ultimate",
+            "Name": "Valkyrie",
+            "Radius": 10,
+            "RangeIncrease": 100,
+            "Healing": 60,
+            "SelfHealing": 20,
+            "MovementSpeed": 9,
+            "GuardianAngelMovementSpeed": 25,
+            "Ammo": -1,
+            "CastingTime": 0.5,
+            "Duration": 15,
+            "Cost": 1820
+        }
+    },
+    "Moira":
+    {
+        "Role": "Support",
+        "Name": "Moira",
+        "MaxHP": 200,
+        "MaxArmor": 0,
+        "MaxShield": 0,
+        "PrimaryFire":
+        {
+            "Type": "Beam",
+            "Name": "Biotic Grasp",
+            "Ammo": 160,
+            "AmmoConsume": 12.5,
+            "Healing": 70,
+            "AdditionalHealing": 35,
+            "Duration": 2,
+            "Range": 15,
+            "Charge": 3.84,
+            "CastingTime": 0.1
+        },
+        "SecondaryFire":
+        {
+            "Type": "Beam",
+            "Name": "Biotic Grasp",
+            "Range": 20,
+            "Ammo": -1,
+            "Critical": false,
+            "Charge": 21.875
+        },
+        "Ability1":
+        {
+            "Type": "Non-damaging Movement",
+            "Name": "Fade",
+            "MovementSpeedBuff": 250,
+            "Range": 15,
+            "Duration": 0.8,
+            "Cooldown": 6
+        },
+        "Ability2":
+        {
+            "Type": "Projectile",
+            "Name": "Biotic Orb",
+            "Damage": 50,
+            "MaxDamage": 200,
+            "Healing": 65,
+            "MaxHealing": 300,
+            "MinProjectileSpeed": 5.5,
+            "MaxProjectileSpeed": 20,
+            "HealingRadius": 5,
+            "DamageRadius": 4,
+            "Cooldown": 10
+        },
+        "Ultimate":
+        {
+            "Type": "Beam Ultimate",
+            "Name": "Coalescence",
+            "Range": 30,
+            "Healing": 140,
+            "SelfHealing": 50,
+            "MovementSpeedBuff": 50,
+            "CastingTime": 0.5,
+            "Duration": 8,
+            "Cost": 2380
         }
     }
 }
