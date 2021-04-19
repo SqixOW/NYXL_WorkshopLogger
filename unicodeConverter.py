@@ -1,4 +1,3 @@
-#-*- coding: utf-8 -*-
 import os
 import sys
 import codecs
@@ -55,8 +54,12 @@ class Converter:
 
         if basket_list[1] in list(self.database.player.keys()):
             line = line.replace(basket_list[1], self.database.player[basket_list[1]])
-        if basket_list[2] in list(self.database.hero.keys()):
-            line = line.replace(basket_list[2], self.database.hero[basket_list[2]])
+#        if basket_list[2] in list(self.database.hero.keys()):
+#            line = line.replace(basket_list[2], self.database.hero[basket_list[2]])
+        if basket_list[2][2] == 'c' and basket_list[2][3] == 'i' and basket_list[2][4] == 'o':
+            line = line.replace(basket_list[2], 'Lucio')
+        if basket_list[2][0] == 'T' and basket_list[2][1] == 'o' and basket_list[2][2] == 'r':
+            line = line.replace(basket_list[2], 'Torbjorn')
         if basket_list[19] in list(self.database.player.keys()):
             line = line.replace(basket_list[19], self.database.player[basket_list[19]])          
         
